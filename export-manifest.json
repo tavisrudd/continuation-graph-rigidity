@@ -1,0 +1,311 @@
+{
+  "content_sha256": "d1c24554f5a157576514f892bd25907128f6b204c5f5a82a0acf31a9e5a93ae5",
+  "excluded_path_count": 0,
+  "excluded_release_outputs": [],
+  "excluded_symlinks": [
+    {
+      "path": "2026-07-10-continuation-graph-rigidity-upgrades.md",
+      "reason": "private research-planning note, not part of the public manuscript repository"
+    },
+    {
+      "path": "2026-07-11-continuation-rigidity-audit-scope.md",
+      "reason": "private audit-scope note, not part of the public manuscript repository"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 51,
+      "mode": "100644",
+      "path": ".gitignore",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "1f4232761f8683e72bf7e8835f99c3fcaea9002625aacf917b7e3a1341e202b7",
+      "source_blob": "bded573bfb038ee417c59958eac5c53f15dbca98"
+    },
+    {
+      "bytes": 672,
+      "mode": "100644",
+      "path": ".zenodo.json",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "0f054f5ae3e48e2055749c5f19e93e20a7d38386b21880573e432412f5c7d452",
+      "source_blob": "08e3b1e7aea6bdc0290dba46c23280500b10d48b"
+    },
+    {
+      "bytes": 296,
+      "mode": "100644",
+      "path": "CITATION.cff",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "2a0ab689cd8535aad9dd27b6b76c01743015b578fd263030d78229479c566ffd",
+      "source_blob": "70e3886caf136c0a4dfbfd3d575659edf2eac650"
+    },
+    {
+      "bytes": 1067,
+      "mode": "100644",
+      "path": "LICENSE",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "4e0707ba71e80441ab251d8a520456723b8747e3929fc9df17d831e3ee282b15",
+      "source_blob": "fd06a92d00e7fcdec4788fd7b9287e66eb8093b5"
+    },
+    {
+      "bytes": 524,
+      "mode": "100644",
+      "path": "Makefile",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "59d634d89a3a8230d25f3025b1429aaeaa370d4bd6a043d0f2e741dea9dc769b",
+      "source_blob": "4359652c449d0aa7b2ac95c4307f8d36b340a9bc"
+    },
+    {
+      "bytes": 513,
+      "mode": "100644",
+      "path": "PROVENANCE.md",
+      "role": "provenance",
+      "sha256": "54bed8c35c7824d9e211d97984efe5a1d37b79d511a641bd454bf8a750bd6677",
+      "source_blob": null
+    },
+    {
+      "bytes": 1942,
+      "mode": "100644",
+      "path": "README.md",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "bf5073135ec037f1871b67a05b814e6eaf3799a21cc8463017ab05c0e674bf88",
+      "source_blob": "930d016081a749aa17e2e17929d7d8a4e3003cd0"
+    },
+    {
+      "bytes": 325997,
+      "mode": "100644",
+      "path": "continuation_graph_rigidity.pdf",
+      "rewrites": [],
+      "role": "release-output",
+      "sha256": "471262e1f99703c8aa3b94fbb9186101f7650c1e041df7f9279970e7a4fb6a64",
+      "source_blob": "d74b19880d741661f90d5268b048d311f3766618"
+    },
+    {
+      "bytes": 37762,
+      "mode": "100644",
+      "path": "continuation_graph_rigidity.tex",
+      "rewrites": [],
+      "role": "manuscript-source",
+      "sha256": "2e50f8caeefbf3d4d336cbe60ad634258e9834d221481f1894438a6068d4662f",
+      "source_blob": "d2c2adedc370b5bfd32018429e11095c14177b47"
+    },
+    {
+      "bytes": 567,
+      "mode": "100644",
+      "path": "flake.lock",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "25dc07dea0f33888dffa85777ed1f4cb63b4bb0da712d35abed88127d172c4e3",
+      "source_blob": "9889bc303bc5547d7f88f2791877c27c8f570555"
+    },
+    {
+      "bytes": 578,
+      "mode": "100644",
+      "path": "flake.nix",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "d1dc9e26ded0088f845e7c4b0dbb4cd212ff3fd3fbf00cbf1467db4489edcca1",
+      "source_blob": "d5abaa624c3dec446dab0f157ff4216fff868eee"
+    },
+    {
+      "bytes": 234,
+      "mode": "100644",
+      "path": "formal-annotations.tex",
+      "rewrites": [],
+      "role": "manuscript-source",
+      "sha256": "c62ca383779cff86b0894cf0c8f323e778d2d234c564b3c273b75750a5f16aec",
+      "source_blob": "a9852ecfc1b3ad2abc1122145a42a36e0157e5b7"
+    },
+    {
+      "bytes": 4413,
+      "mode": "100644",
+      "path": "verification/README.md",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "5eb482b137330c38fa715c3a538122c36d361ed80d42e9920a12bce313ebbbac",
+      "source_blob": "89576a375307742e6cdad721b902f4ba9fdd9df1"
+    },
+    {
+      "bytes": 2172,
+      "mode": "100644",
+      "path": "verification/SHA256SUMS",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "5d58166b372bcafa6be96af30f30a7f699595d0178a84818e2e8e38e44b5829c",
+      "source_blob": "69347bc7d6c2a086e055c4b84955f3fbe8e8b992"
+    },
+    {
+      "bytes": 740,
+      "mode": "100644",
+      "path": "verification/benchmark.json",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "fc05fc5d0ff40a66ecb8b96e26e38bd4be46377b188c959db37f2630b7e57c47",
+      "source_blob": "a4bf7128a26dc650d76bb6c132618d420afc4197"
+    },
+    {
+      "bytes": 46617,
+      "mode": "100644",
+      "path": "verification/boundary.json",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "e92bb7833f86d269831f8fd9e2ae719d7e662a67fbd699e8a3e92d0f15cb9858",
+      "source_blob": "ec0a303c672f0563dd7e8f23156ab4a3cf4f1778"
+    },
+    {
+      "bytes": 3979,
+      "mode": "100644",
+      "path": "verification/check_formal_artifact.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "2a9706f1e1b33ba1707e2c462c3fcb77f018b4ae93e268ac38fe4d199ca6a71a",
+      "source_blob": "7959a04ed56faaa44f7523ffdac3fb1eff3e9eff"
+    },
+    {
+      "bytes": 1436,
+      "mode": "100644",
+      "path": "verification/check_manuscript_build.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "96037bf17ff4602da675b4941c542b533a25c3a9e1f9637ef325f285ec23f8b9",
+      "source_blob": "1ce12d306ebd7de3b3f7aa06f691c9de9b0745e8"
+    },
+    {
+      "bytes": 2804,
+      "mode": "100644",
+      "path": "verification/check_recognition.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "b4b0445d7e3b978014a99759ea0b8323ebde0f0760acab79e758c72ad93acf99",
+      "source_blob": "ad8b57fd5d1f7b01e8937a1e371cdd613114afe0"
+    },
+    {
+      "bytes": 12511,
+      "mode": "100644",
+      "path": "verification/claims.json",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "8e780e015c8cabde8369a5c2dbc6a3d802e8ecb21c118728958e5186f2023dea",
+      "source_blob": "383904b21ffce2b7f434a7cd4fe13ec079ad9da2"
+    },
+    {
+      "bytes": 2006,
+      "mode": "100644",
+      "path": "verification/dependency-graph.dot",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "42cbb9384bac6332f8a68746e781eef78cb2adff7bbe8021978f3f76023c6d44",
+      "source_blob": "bf948a9d5b9bdf403e7d6c2daa2ad3ae1df15913"
+    },
+    {
+      "bytes": 262,
+      "mode": "100644",
+      "path": "verification/dependency_graph.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "cccd4be589c9c7ca00754513753de222ac92b44f4c47c50c94830b22ce6d904b",
+      "source_blob": "1504ae3e0482ee78fc425e7ca3953fb4a8c8d621"
+    },
+    {
+      "bytes": 508,
+      "mode": "100644",
+      "path": "verification/evidence.json",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "acb66e2dfdb40bc89a1e24f21754c2749aeb2a9afafde04c2fdd95fad7f6bf76",
+      "source_blob": "347a514be2cd15c18d2f1507f99d939fab2e357c"
+    },
+    {
+      "bytes": 864,
+      "mode": "100644",
+      "path": "verification/file-sizes.json",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "9e6fe1173e1274c100dfba3e760f6f21d92281aaa4d22ff6fcc9933d55981b3e",
+      "source_blob": "01e4e451e52cb15834d522a97b0e66e2df5ff6ad"
+    },
+    {
+      "bytes": 3479,
+      "mode": "100644",
+      "path": "verification/frame_model.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "973eb0e1b406597372cb32cd6121bdb919c67cd61b3a8fc37d8a265a8abf6a12",
+      "source_blob": "4a7a09bbe3413dbd41c563bf28bc8dbbc3c3bbc1"
+    },
+    {
+      "bytes": 4155,
+      "mode": "100644",
+      "path": "verification/generate_boundary.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "e3694448b855d1fcc283a72c869cf1bf3801b7ba994b96a15ede3271490aa331",
+      "source_blob": "e070c4277de257c28abc5f481bf6a51516741b87"
+    },
+    {
+      "bytes": 424,
+      "mode": "100644",
+      "path": "verification/imported-sources.json",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "5988ea37797c70af8d177052b1d7f94bd637cd89b801da4bc338a89ca527970f",
+      "source_blob": "49593d64992f1ecc9b6c6935ebda07bdb4a042fc"
+    },
+    {
+      "bytes": 4834,
+      "mode": "100644",
+      "path": "verification/recognize.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "5bb8df4c1e66968a47a95463bfdbf6e53c59b63c26cae4fa59197ac0a7500995",
+      "source_blob": "d6c76bd9ef12e2f56e9931cf28bc1d49d5dff0a7"
+    },
+    {
+      "bytes": 829,
+      "mode": "100644",
+      "path": "verification/refresh_claim_digests.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "8dd073a19ca2f5367c49307cbde77b201045176aaef2f5076944194b8b3d44af",
+      "source_blob": "c1b79d28130724ed9f0441c6c6d99f243a403647"
+    },
+    {
+      "bytes": 1037,
+      "mode": "100644",
+      "path": "verification/refresh_hashes.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "70e9d525e004022f23873ea6118a814f282d5588c0d004328597f6bf1718f2b9",
+      "source_blob": "ab505416b8b3a363b56eb96d15958dee4056d505"
+    },
+    {
+      "bytes": 3031,
+      "mode": "100644",
+      "path": "verification/replay_boundary.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "429737e1a1ab331924cc4528b97a2f1c16859ac7562843aa852ab33372c47d77",
+      "source_blob": "4c8a583b61b8d38e33a3d81981feb1caffdd1db8"
+    },
+    {
+      "bytes": 1485,
+      "mode": "100644",
+      "path": "verification/test_integrity.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "37119a3c4a01407e12265fa5829378895752cdbf3ceb2d937104c89c69020908",
+      "source_blob": "bfd740c20d761f512e1e351412ec14123c94c2c2"
+    }
+  ],
+  "github": "tavisrudd/continuation-graph-rigidity",
+  "main_sources": [
+    "continuation_graph_rigidity.tex"
+  ],
+  "manifest_self_excluded": true,
+  "repository": "continuation-graph-rigidity",
+  "schema_version": 1
+}
