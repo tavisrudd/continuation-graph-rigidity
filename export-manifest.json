@@ -1,5 +1,5 @@
 {
-  "content_sha256": "052c790ebc8e210dd392a1620f68293c0cecfb898a6b9911c81ccf4afced93f8",
+  "content_sha256": "c4cf8b67266d67e609b7e009100bcedc97a24ba35394c864b764e52aa911b3cb",
   "excluded_path_count": 0,
   "excluded_release_outputs": [],
   "excluded_symlinks": [
@@ -63,7 +63,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "37e02df35ef4e4efe82ee8f5d0dad8be7bcb8e76726224f1ccf60734c85ebc1f",
+      "sha256": "affad26d36577b2eeaf0c2eecd9bf41ea5588d3163cc9beae44a0460853116f8",
       "source_blob": null
     },
     {
@@ -76,22 +76,22 @@
       "source_blob": "930d016081a749aa17e2e17929d7d8a4e3003cd0"
     },
     {
-      "bytes": 331812,
+      "bytes": 335629,
       "mode": "100644",
       "path": "continuation_graph_rigidity.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "063e8bfd43b4e4f1b5f21ba804d0e8d4749fea1b60f293c32c74104882c9aab3",
-      "source_blob": "c6d1efe02c32d6135fc051d53d4e685f9450489b"
+      "sha256": "8d451ee0382353c7dc449f9276d27aa20f67e7c19549e997e3b718168fed2718",
+      "source_blob": "f70bbe68a2be0a1c348dbb1b99e1a372f84ab2e0"
     },
     {
-      "bytes": 40198,
+      "bytes": 43469,
       "mode": "100644",
       "path": "continuation_graph_rigidity.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "a9f83ed4ffd20f9aa8b28dbd2c7681841735079ee4ac14b5422d4bafbea79c5d",
-      "source_blob": "cec4ac6196515ff203a920cde21824deb6db7c00"
+      "sha256": "833e7299d15e9934bab70c921e667551819151490e2105c046ba0fa984a91efc",
+      "source_blob": "b06aacd8ab67b772aef70e5ff9efef75787f9bd3"
     },
     {
       "bytes": 567,
@@ -135,8 +135,8 @@
       "path": "verification/SHA256SUMS",
       "rewrites": [],
       "role": "verification",
-      "sha256": "3b186872244f6ba07ea3944e10247de266a9d013c4489dd11d84bb96a9805c8a",
-      "source_blob": "7802b1ec3c74731efdb0b10fe29cfd5288104f4d"
+      "sha256": "dfa01f9bed06f8fbc465e9d8f9ba70f7f882c20273d6d2c3ed86ada6fea74757",
+      "source_blob": "0ce9b885a8d838f0583d76f1b130cd0d521e428e"
     },
     {
       "bytes": 740,
@@ -225,8 +225,8 @@
       "path": "verification/file-sizes.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "a24102cf846e49d6c6a180cba05b28b39ce1811b99c6788c2a5586943591acdf",
-      "source_blob": "f8defe5a6935488383ff4ebabda221c296112378"
+      "sha256": "6bcd5503a9e0b75a571df19c65bd05cc99fbc26a1af031e8ab1f5f23f700d585",
+      "source_blob": "82c1691cea697c9031746d3b39d43771f9da8545"
     },
     {
       "bytes": 3479,
