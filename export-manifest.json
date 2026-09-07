@@ -1,5 +1,5 @@
 {
-  "content_sha256": "3d85103deb524908931e9612ecc0875857ab19da100faba95708c2bf71af48fc",
+  "content_sha256": "18faabb65d2e871ae6d54e6ca45fa1296807e3a7655e86ba5da59a92cc0799d5",
   "excluded_path_count": 0,
   "excluded_release_outputs": [],
   "excluded_symlinks": [
@@ -23,27 +23,36 @@
       "source_blob": "bded573bfb038ee417c59958eac5c53f15dbca98"
     },
     {
-      "bytes": 672,
+      "bytes": 678,
       "mode": "100644",
       "path": ".zenodo.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "0f054f5ae3e48e2055749c5f19e93e20a7d38386b21880573e432412f5c7d452",
-      "source_blob": "08e3b1e7aea6bdc0290dba46c23280500b10d48b"
+      "sha256": "1796f052074299bbf6a4c25a92d1c3015c6cf0253adbb7a9e3a7bd53f1035bee",
+      "source_blob": "f03f8cf4d6d4e2079b670c3b9472a3c02e40d110"
     },
     {
-      "bytes": 296,
+      "bytes": 302,
       "mode": "100644",
       "path": "CITATION.cff",
       "rewrites": [],
       "role": "support",
-      "sha256": "2a0ab689cd8535aad9dd27b6b76c01743015b578fd263030d78229479c566ffd",
-      "source_blob": "70e3886caf136c0a4dfbfd3d575659edf2eac650"
+      "sha256": "e3e74e772015e47bfcb9e1026a78204c00eb50bbcbe8a77b9a8ea3aa93394488",
+      "source_blob": "a7775a9a0ff5478d9eb8ec4a4c3a391033a97426"
+    },
+    {
+      "bytes": 553,
+      "mode": "100644",
+      "path": "LICENSE",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "90885819c24265c0a635c3b624a7d3d50d3ba700007cdcf97ee1f8e41a53c840",
+      "source_blob": "a062348b96b56d1a3cdd42146f6344214c9f8530"
     },
     {
       "bytes": 1067,
       "mode": "100644",
-      "path": "LICENSE",
+      "path": "LICENSE-MIT",
       "rewrites": [],
       "role": "support",
       "sha256": "4e0707ba71e80441ab251d8a520456723b8747e3929fc9df17d831e3ee282b15",
@@ -63,17 +72,17 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "54d9fef5d4373024716a45d638a8ffdb3c220925dee11022cc9a1df5e3d27a62",
+      "sha256": "52ed356aaa6650e95fbd6b9c58b607105979fc85322729d3a9d136905a6e3e93",
       "source_blob": null
     },
     {
-      "bytes": 7077,
+      "bytes": 7202,
       "mode": "100644",
       "path": "README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "8d82cc678ed66776c529426d55699cc1876c094027da9c0f7af2a4693f5a7342",
-      "source_blob": "0b2f1bfeae49ccc95d3d02c33691d9c727491c61"
+      "sha256": "d618ac0814fc01598f52ba0c6cc67055219ac7de2f464ac859b03617960d4648",
+      "source_blob": "68922218d81c4ab250433ebb204b43b008f77f33"
     },
     {
       "bytes": 336758,
