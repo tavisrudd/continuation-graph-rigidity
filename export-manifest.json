@@ -1,5 +1,5 @@
 {
-  "content_sha256": "4c088d3d5b8a1d0097a26869d25b68344a2afbbe29ce244600c637a2189f897b",
+  "content_sha256": "ccfe37213cb1f0f8ff2aff9f391619bbdf0eb809db28e84c49066d07dcd82f42",
   "excluded_path_count": 0,
   "excluded_release_outputs": [],
   "excluded_symlinks": [
@@ -28,8 +28,8 @@
       "path": ".zenodo.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "1796f052074299bbf6a4c25a92d1c3015c6cf0253adbb7a9e3a7bd53f1035bee",
-      "source_blob": "f03f8cf4d6d4e2079b670c3b9472a3c02e40d110"
+      "sha256": "bb246aded8874b2f2dd9a76fbd522efc235f5c35b39cb2f862377350bd2b6c30",
+      "source_blob": "0c6b272768b018c297604bb4ba389c4ec39e35db"
     },
     {
       "bytes": 498,
@@ -37,8 +37,8 @@
       "path": "CITATION.cff",
       "rewrites": [],
       "role": "support",
-      "sha256": "02bd02063195cd99ca5fb23226e9e1ed00d0d0a5371880d68821706d0e6870e2",
-      "source_blob": "108c6745bca53c3fc1a73046567653760a8320bd"
+      "sha256": "f7fa2215a587da9b1cea346eaff4656ec49fb72bf934764fe3577ee80c3a81c6",
+      "source_blob": "adc3bbe5f83ad6204f8039ea8b2ff3e5c1d04564"
     },
     {
       "bytes": 553,
@@ -46,8 +46,8 @@
       "path": "LICENSE",
       "rewrites": [],
       "role": "support",
-      "sha256": "90885819c24265c0a635c3b624a7d3d50d3ba700007cdcf97ee1f8e41a53c840",
-      "source_blob": "a062348b96b56d1a3cdd42146f6344214c9f8530"
+      "sha256": "85876276b2ae25ace5a69cdea4aaa21c66c060e2dbc1d83bb47d128e4ea90def",
+      "source_blob": "d2689f816d637996cbee6731ad4ebafaa5e89eec"
     },
     {
       "bytes": 1067,
@@ -72,35 +72,35 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "4f26f777ed34b69af19f306c10c8b669afd6dc682121c99548deac5102137203",
+      "sha256": "b723761bfd0a235f782707e4c79387ab90b55fedf876fa1d8c67fcd79bfed6ee",
       "source_blob": null
     },
     {
-      "bytes": 8391,
+      "bytes": 8376,
       "mode": "100644",
       "path": "README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "e0b03a74d1c2cd7f0b5865eb6166a3415edb66aeb2a49670ff53da057110061c",
-      "source_blob": "2102120441343a03327390625a809646b215affd"
+      "sha256": "a8fc278adc3f2ab0fa12ccdf7e4644df5288864ecc671e6f66257c67d3019820",
+      "source_blob": "d11213900c303e5dec2e0014dfd622e8b8bc4b72"
     },
     {
-      "bytes": 406130,
+      "bytes": 406487,
       "mode": "100644",
       "path": "continuation_graph_rigidity.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "4c786bacd48390c51ffbaf84b2c83f7d31b22bc9d5f2e852567ad3c581641ace",
-      "source_blob": "6e22b9bd3c7b26aec388c36d039e7ea95213b237"
+      "sha256": "e82cd7c3de51cdbed5f748652330fde6119c6beaa702a883f9f7e25f20c46f0a",
+      "source_blob": "24bed672c5c927c82a5ac689d4858674518eab5f"
     },
     {
-      "bytes": 61561,
+      "bytes": 61540,
       "mode": "100644",
       "path": "continuation_graph_rigidity.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "feb782489f051c9c8e0eb8bb40e4d4c9f65a6a9a8f084f138315b98a3bc4813c",
-      "source_blob": "050ea7b9fc95a493ef1c4ea265047c0117210c93"
+      "sha256": "250c9632f27463749d481e38058ce4a5d594359f778101cd32b751a418276f11",
+      "source_blob": "b8cddd16d254e91a79ac1d2328a4e83d9465cd4d"
     },
     {
       "bytes": 567,
@@ -144,8 +144,8 @@
       "path": "verification/SHA256SUMS",
       "rewrites": [],
       "role": "verification",
-      "sha256": "c44215dc54d9a0c4bc0279d4272879b84f434d018fa4b5259490f996a31ee808",
-      "source_blob": "f5310907659b1503acb8b8709ec6ff25d6775605"
+      "sha256": "ab6ab0b75b3a72ac771f542205da7b4c482c654809a2204478e571b7d5c57551",
+      "source_blob": "a47baba4708da7ee13f1b686d2cdb52118c95df3"
     },
     {
       "bytes": 740,
@@ -252,8 +252,8 @@
       "path": "verification/file-sizes.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "4d3c44308fc53682ac8c6c823fb745d7437f4469172e903faddf98832ba8bcbb",
-      "source_blob": "c4aea90a99f09f3261a61b3fa5e65fb1a7827970"
+      "sha256": "3101981725d35d522a0e03bbb8a5cd8ac8951a1bc3b6c7c67f1a95f2d178961a",
+      "source_blob": "2c8f0f01c1ceb5c8043ce7a5eb15dfc4f697ad00"
     },
     {
       "bytes": 3661,
