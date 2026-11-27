@@ -2,23 +2,23 @@
   "python": "3.14.7",
   "records": [
     {
-      "generic_isomorphism_seconds": 0.006097089499235153,
+      "generic_isomorphism_seconds": 0.012116487137973309,
       "q": 13,
-      "reconstruction_seconds": 0.04909009113907814,
+      "reconstruction_seconds": 0.01069821696728468,
       "seed": 20260920,
       "vertices": 110
     },
     {
-      "generic_isomorphism_seconds": 0.01177986804395914,
+      "generic_isomorphism_seconds": 0.016167910303920507,
       "q": 17,
-      "reconstruction_seconds": 0.3396128732711077,
+      "reconstruction_seconds": 0.03331907093524933,
       "seed": 20260924,
       "vertices": 210
     },
     {
-      "generic_isomorphism_seconds": 0.02987174317240715,
+      "generic_isomorphism_seconds": 0.029750637244433165,
       "q": 19,
-      "reconstruction_seconds": 0.7578821303322911,
+      "reconstruction_seconds": 0.05132816871628165,
       "seed": 20260926,
       "vertices": 272
     }

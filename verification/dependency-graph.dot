@@ -22,6 +22,9 @@ digraph claims {
   "lem:frobenius" [color="gray"];
   "lem:isotopy" -> "lem:frobenius" [style=dashed];
   "lem:isotopy" [color="gray"];
+  "lem:local-trace" [color="gray"];
+  "lem:seeds" -> "lem:local-trace" [style=dashed];
+  "prop:intersection" -> "lem:local-trace" [style=dashed];
   "lem:seeds" [color="gray"];
   "prop:normal" -> "lem:seeds" [style=dashed];
   "lem:frame-clique" -> "lem:seeds" [style=dashed];
@@ -33,6 +36,8 @@ digraph claims {
   "prob:larger-arcs" [color="gray"];
   "thm:traces" -> "prob:larger-arcs" [style=dashed];
   "thm:centres" -> "prob:larger-arcs" [style=dashed];
+  "prob:list-recognition" [color="gray"];
+  "thm:recognition" -> "prob:list-recognition" [style=dashed];
   "prop:boundary" [color="gray"];
   "prop:normal" -> "prop:boundary" [style=dashed];
   "lem:isotopy" -> "prop:boundary" [style=dashed];
@@ -43,6 +48,14 @@ digraph claims {
   "prop:one-point" [color="gray"];
   "prop:size" [color="gray"];
   "prop:normal" -> "prop:size" [style=dashed];
+  "rem:arbitrary-fields" [color="gray"];
+  "lem:isotopy" -> "rem:arbitrary-fields" [style=dashed];
+  "lem:frobenius" -> "rem:arbitrary-fields" [style=dashed];
+  "lem:frame-clique" -> "rem:arbitrary-fields" [style=dashed];
+  "cor:frame-traces" -> "rem:arbitrary-fields" [style=dashed];
+  "lem:centre-seeds" -> "rem:arbitrary-fields" [style=dashed];
+  "thm:main" -> "rem:arbitrary-fields" [style=dashed];
+  "cor:reconstruction" -> "rem:arbitrary-fields" [style=dashed];
   "rem:small-order" [color="gray"];
   "prop:boundary" -> "rem:small-order" [style=dashed];
   "lem:isotopy" -> "rem:small-order" [style=dashed];
@@ -56,6 +69,7 @@ digraph claims {
   "lem:frobenius" -> "thm:main" [style=dashed];
   "thm:recognition" [color="gray"];
   "lem:seeds" -> "thm:recognition" [style=dashed];
+  "lem:local-trace" -> "thm:recognition" [style=dashed];
   "lem:centre-seeds" -> "thm:recognition" [style=dashed];
   "prop:normal" -> "thm:recognition" [style=dashed];
   "prop:size" -> "thm:recognition" [style=dashed];

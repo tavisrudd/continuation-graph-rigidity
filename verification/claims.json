@@ -16,10 +16,10 @@
       "conclusion": "Each graph isomorphism extends uniquely; field order and geometry are recovered",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Two Desarguesian frames with q,qprime>=9",
+      "hypotheses": "Two Desarguesian frames with q>=9 and qprime any prime power",
       "label": "cor:reconstruction",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "1bf8a676db948aa19b2ac9c42b43807d2fc0e5a112e1208f095116cc5bbfc6e8",
+      "statement_sha256": "c17afe074e5b86efb6ef4324d0db6ac744632cbbab6f6b67ae7e39947295f63b",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -144,6 +144,17 @@
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
+      "cautions": "Proof sketch by reference to the field-general proofs; no Lean formalization claimed. Finite-field boundary at q=7 uses prop:boundary.",
+      "conclusion": "Aut(G_K)=Stab_PGammaL(3,F)(K)=S4 x Aut(F); isomorphisms to frame graphs over any field force F=F' and extend uniquely semilinearly",
+      "coverage": "absent",
+      "declarations": [],
+      "hypotheses": "Frame in PG(2,F), F any field with |F|>=9, finite or infinite",
+      "label": "rem:arbitrary-fields",
+      "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
+      "statement_sha256": "dd98e3ffcb4ba9e7836129d6224d5c827a91cc9b2832948130f44c631d38a04c",
+      "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
       "cautions": "Written argument or scope remark; no Lean formalization claimed.",
       "conclusion": "Four vertices determine a tangent trace by common neighbourhood",
       "coverage": "absent",
@@ -156,13 +167,24 @@
     },
     {
       "cautions": "Written argument or scope remark; no Lean formalization claimed.",
-      "conclusion": "O(n^(7/2)) recognition after degree and vertex-count checks, with O(n^2) coordinate-certificate verification",
+      "conclusion": "u,w lie on a common trace through v iff they have at least seven common neighbours in N(v)",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Arbitrary graph and supplied finite field, q>=9",
+      "hypotheses": "Four-point frame, q>=13; adjacent u,w in N(v)",
+      "label": "lem:local-trace",
+      "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
+      "statement_sha256": "934855b1e93e7348328949b45a618b0d1c22ebcfbfe77580371c15421bde98d5",
+      "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "cautions": "Written argument or scope remark; no Lean formalization claimed.",
+      "conclusion": "O(n^2) adjacency queries and field operations after the vertex-count check, optimal in the adjacency-query model, with O(n^2) coordinate-certificate verification",
+      "coverage": "absent",
+      "declarations": [],
+      "hypotheses": "Arbitrary graph given by adjacency queries and supplied finite field, q>=9",
       "label": "thm:recognition",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "19fff34efd2f72dcada2579557f318acdb55dad7a7f014746e85854161ae96b2",
+      "statement_sha256": "a84a83d62c8ab16069035cd8a20f6e95c8a0bc4ade2190373e7a3ae932c08c1f",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -207,6 +229,17 @@
       "label": "prob:boundary-proof",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
       "statement_sha256": "6c7021c8126b64e74d9cddd0140b6ec39fd650cd3e22a72a2f884e78f8237824",
+      "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "cautions": "Open problem, not a proved assertion.",
+      "conclusion": "Open: recognition in O(n^(3/2)) operations; certificate checking already fits this bound",
+      "coverage": "absent",
+      "declarations": [],
+      "hypotheses": "Frame graphs given by adjacency lists",
+      "label": "prob:list-recognition",
+      "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
+      "statement_sha256": "4d5b8f2c7877b3029152852e5e3ffc255be76d9b78d6e7f092dcf0de4ec5ec9a",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {

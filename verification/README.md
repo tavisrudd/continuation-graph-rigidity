@@ -1,6 +1,6 @@
 # Verification scope
 
-The stable-range proofs are written mathematics. All 25 statement records are
+The stable-range proofs are written mathematics. All statement records are
 marked `absent` for Lean coverage, including scope remarks and open problems.
 The annotations and claim hashes check source consistency; they do not prove
 mathematics. Dependency edges record the indicated statement-level dependencies,
@@ -46,10 +46,15 @@ for subsequent replays. `SHA256SUMS` records load-bearing source and output hash
 
 ## Recognition and controls
 
-`recognize.py` receives adjacency and an optional `field` object, recovers
-four partitions using four-vertex trace seeds and edge seeds for centre
-classes, completes a cyclic quotient table, and tries generator images.
-The degree check gives an O(n^(7/2)) operation bound, not a wall-time promise.
+`recognize.py` receives adjacency and an optional `field` object. For q>=13 it
+recovers traces by the local common-neighbour test of `lem:local-trace` at
+every vertex of two traces through one vertex; for q=9,11 it closes
+four-vertex trace seeds. Edge seeds of the disjointness graph give the centre
+classes, each completed by its at most one missing trace. It then completes a
+cyclic quotient table, tries generator images, and runs the pairwise check on
+the first image passing the fourth-partition test. The paper's O(n^2) bound
+counts adjacency queries and field operations; bitset operations in this
+implementation are not unit cost, and no wall-time promise is made.
 Recognition requires q>=9. `recognize(adj, field=f)` and
 `verify_transport(adj, q, coordinates, field=f)` use the supplied model throughout.
 The field object provides `q`, `sub(x,y)`, `div(x,y)`, and `power(x,k)`;
@@ -78,10 +83,10 @@ search but shares the supplied arithmetic, whose field axioms remain trusted.
 
 `benchmark.json` records one wall-time sample comparing reconstruction and Sage
 isomorphism with an explicit isomorphism, excluding graph construction. Reproduce
-with `make benchmark`; times will vary and are not byte-replayed. The pre-revision recorded
-reconstruction implementation is slower than the generic control at these three
-orders. This prototype demonstrates correctness and exposes structure; it does not
-establish a performance advantage. Regenerating timings requires refreshing their
+with `make benchmark`; times will vary and are not byte-replayed. The current
+sample was recorded after the local-test revision of the recognizer. This
+prototype demonstrates correctness and exposes structure; it does not establish
+a performance advantage. Regenerating timings requires refreshing their
 integrity hashes deliberately.
 
 ## Manuscript and source checks

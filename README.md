@@ -2,7 +2,7 @@
 
 [![Concept DOI](https://img.shields.io/badge/Concept_DOI-10.5281%2Fzenodo.22651105-blue.svg)](https://doi.org/10.5281/zenodo.22651105)
 
-Tavis Rudd — September 2026.
+Tavis Rudd — November 2026.
 
 ## Read the paper
 
@@ -17,7 +17,9 @@ The paper answers this question for four-point projective frames over finite
 fields of order at least 9. The graph determines the field order and the
 plane with its frame, up to semilinear equivalence. Every graph isomorphism
 extends uniquely to an equivalence of the underlying planes carrying one
-frame to the other.
+frame to the other. Apart from a vertex count, the arguments are
+field-general, so the same holds for frames over every field with at least
+nine elements, finite or infinite.
 
 ## Main result
 
@@ -38,9 +40,10 @@ The abstract group is `S_4 × C_e`: normalized frame permutations commute
 with Frobenius. The action on legal vertices is faithful.
 
 The extension statement controls each individual graph isomorphism. It also
-leads to a polynomial-time recognition algorithm: given an arbitrary graph
-and a finite field of order at least 9, the algorithm either rejects or
-returns coordinates that certify a frame-graph representation.
+leads to a recognition algorithm: given an arbitrary graph on `n` vertices
+and a finite field of order at least 9, the algorithm uses `O(n²)` adjacency
+queries and field operations, which is optimal, and either rejects or returns
+coordinates that certify a frame-graph representation.
 
 ## How the graph recovers the geometry
 
@@ -114,15 +117,17 @@ generators, and exceptional automorphisms. See the
 [`verification/recognize.py`](verification/recognize.py) implements the
 reconstruction and returns a coordinate certificate. Checking the certificate
 requires comparing every pair of vertices, independently of the search that
-found it. The paper gives an `O(n^(7/2))` recognition bound and an `O(n²)`
-certificate check for a graph with `n` vertices over a supplied field.
+found it. The paper gives an optimal `O(n²)` recognition bound in the
+adjacency-query model and an `O(n²)` certificate check for a graph with `n`
+vertices over a supplied field.
 
 The reference recognizer is tested at orders 9, 11, 13, 16, 17, 19 and 25,
 including nontrivial Frobenius transports, corrupted coordinates and edges,
 and an alternate supplied F16 model. Call `recognize(adj, field=f)` and
 `verify_transport(adj, q, coordinates, field=f)` with the same field object;
-the verification guide specifies its interface. The previously recorded
-prototype timings at orders 13, 17 and 19 are slower than the generic control; it demonstrates reconstruction rather than a performance advantage.
+the verification guide specifies its interface. The recorded single-run
+timings at orders 13, 17 and 19 compare it with a generic isomorphism control;
+they demonstrate reconstruction rather than a performance advantage.
 
 ## Verification
 

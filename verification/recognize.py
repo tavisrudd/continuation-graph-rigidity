@@ -5,6 +5,8 @@ implementation defaults to prime fields and explicit orders 8,9,16,25.
 The optional field object supplies q, sub(x,y), div(x,y), power(x,k), with
 field elements encoded by range(q) and zero/one encoded by 0/1. Its finite-field
 axioms are a supplied premise, as in the mathematical theorem.
+Trace recovery follows thm:recognition: the local test of lem:local-trace for
+q>=13 and four-clique seeds (lem:seeds) for q=9,11.
 """
 from math import isqrt
 from frame_model import Field,adjacency,fixed_cliques
@@ -20,6 +22,40 @@ def closed_common(adj,seed):
 
 def is_clique(adj,mask):
     return all((adj[i]|(1<<i))&mask==mask for i in members(mask))
+
+def split(adj,v,q):
+    """Local trace test (lem:local-trace) at v, for q>=13: the four traces through v, or None."""
+    nb=adj[v];rel={u:0 for u in members(nb)}
+    for u in rel:
+        for w in members(adj[u]&nb):
+            if w>u and (adj[u]&adj[w]&nb).bit_count()>=7:rel[u]|=1<<w;rel[w]|=1<<u
+    comps=[];left=nb
+    while left:
+        comp=frontier=left&-left
+        while frontier:
+            new=0
+            for x in members(frontier):new|=rel[x]
+            frontier=new&~comp;comp|=frontier
+        left&=~comp;comps.append(comp)
+    if len(comps)!=4 or any(c.bit_count()!=q-4 or not is_clique(adj,c) for c in comps):return None
+    return sorted(c|(1<<v) for c in comps)
+
+def recover_traces(adj,q):
+    """Traces meeting two traces through vertex 0 (q>=13), or all traces by four-clique seeds."""
+    if q>=13:
+        first=split(adj,0,q)
+        if first is None:return None
+        traces=set(first)
+        for v in members(first[0]|first[1]):
+            local=split(adj,v,q)
+            if local is None:return None
+            traces.update(local)
+        return sorted(traces)
+    traces=set()
+    for seed in fixed_cliques(adj,4):
+        b=closed_common(adj,seed)
+        if b.bit_count()==q-3 and is_clique(adj,b):traces.add(b)
+    return sorted(traces)
 
 def verify_transport(adj,q,coordinates, *, field=None):
     f=Field(q) if field is None else field
@@ -46,19 +82,25 @@ def recognize(adj, *, field=None):
     if f.q!=q:return None
     if any(a>>n or a>>i&1 or a.bit_count()!=4*(q-4) for i,a in enumerate(adj)):return None
     if any(bool(adj[i]>>j&1)!=bool(adj[j]>>i&1) for i in range(n) for j in range(i)):return None
-    traces=set()
-    for seed in fixed_cliques(adj,4):
-        b=closed_common(adj,seed)
-        if b.bit_count()==q-3 and is_clique(adj,b):traces.add(b)
-    traces=sorted(traces)
-    if len(traces)!=4*(q-2):return None
+    traces=recover_traces(adj,q)
+    if traces is None or any(b.bit_count()!=q-3 for b in traces):return None
     disjoint=[sum(1<<j for j,b in enumerate(traces) if i!=j and not a&b) for i,a in enumerate(traces)]
     classes=set()
     for seed in fixed_cliques(disjoint,2):
         c=closed_common(disjoint,seed)
-        if c.bit_count()==q-2 and is_clique(disjoint,c):classes.add(c)
-    classes=sorted(classes)
-    if len(classes)!=4 or sum(c.bit_count() for c in classes)!=(sum(classes)).bit_count():return None
+        if c.bit_count()>=q-3 and is_clique(disjoint,c):classes.add(c)
+    if len(classes)!=4 or sum(c.bit_count() for c in classes)!=len(traces) or sum(classes)!=(1<<len(traces))-1:return None
+    full=(1<<n)-1;completed=[]
+    for c in classes:
+        part=[traces[j] for j in members(c)]
+        if len(part)==q-3:part.append(full&~sum(part))
+        if len(part)!=q-2 or sum(part)!=full:return None
+        completed.append(part)
+    # Index classes over the sorted list of all traces, as for full seed recovery.
+    traces=sorted(b for part in completed for b in part)
+    if len(set(traces))!=4*(q-2):return None
+    index={b:j for j,b in enumerate(traces)}
+    classes=sorted(sum(1<<index[b] for b in part) for part in completed)
     parts=[[traces[j] for j in members(c)] for c in classes]
     ids=[]
     for part in parts:
@@ -113,5 +155,8 @@ def recognize(adj, *, field=None):
             z=f.div(f.sub(x,1),f.sub(y,1));c=ids[3][v]
             if c in values and values[c]!=z:valid=False;break
             values[c]=z
-        if valid and len(set(values.values()))==m and verify_transport(adj,q,coordinates,field=f):return q,coordinates
+        if valid and len(set(values.values()))==m:
+            # For a frame graph every image passing the fourth-partition
+            # test is an isomorphism, so one pairwise check decides.
+            return (q,coordinates) if verify_transport(adj,q,coordinates,field=f) else None
     return None

@@ -30,7 +30,7 @@
 
 \title{Reconstructing Projective Frames from Their Continuation Graphs}
 \author{Tavis Rudd}
-\date{September 2026}
+\date{November 2026}
 
 \input{formal-annotations.tex}
 
@@ -48,8 +48,10 @@ The proof recovers the legal points on each tangent line, groups these
 lines by their selected point, then uses
 compatibility between multiplication and translation to recover the field
 action. Completing a punctured division table makes the reconstruction
-algorithmic and gives polynomial-time recognition over a supplied finite
-field, with an independently checkable coordinate certificate.
+algorithmic. Over a supplied finite field it gives recognition with
+$O(n^2)$ adjacency queries and field operations on $n$ vertices, which
+is optimal in the adjacency-query model, and an independently checkable
+coordinate certificate.
 An exhaustive finite computation closes the range $5\le q<9$:
 semilinear rigidity holds at $q=7$, whereas $q=5,8$ each have exactly
 two resolutions into four parallel classes of cliques, and the
@@ -110,7 +112,7 @@ permutation groups on the legal continuation set,
 
 \begin{corollary}[Reconstruction and extension]\label{cor:reconstruction}\coverage{absent}\uses{thm:main,prop:normal}
 Let $K\subset\PG(2,q)$ and $J\subset\PG(2,q')$ be projective frames,
-where $q,q'\ge9$. Every graph isomorphism $f:G_K\to G_J$ forces
+where $q\ge9$ and $q'$ is any prime power. Every graph isomorphism $f:G_K\to G_J$ forces
 $q=q'$ and extends uniquely to a semilinear collineation carrying $K$
 to $J$. Thus the abstract graph determines the plane and its frame up
 to semilinear equivalence within this family.
@@ -119,7 +121,10 @@ to semilinear equivalence within this family.
 
 
 The corollary controls individual maps: every relabelling preserving
-incompatibility has exactly one semilinear extension.
+incompatibility has exactly one semilinear extension. Apart from a
+vertex count, the arguments are field-general:
+Remark~\ref{rem:arbitrary-fields} extends both statements to frames over
+every field with at least nine elements, finite or infinite.
 Section~\ref{sec:algorithm} makes the reconstruction effective: given an
 arbitrary graph and a finite field of order at least $9$, it either
 rejects or supplies field
@@ -476,10 +481,9 @@ multiplicative group $\F_q^\times$.
 \end{lemma}
 
 \begin{proof}
-The map $(x,y)\mapsto(\alpha(x),\beta(y))$ sends $\Omega$ injectively to
-itself and hence bijectively to itself.  The row with first coordinate $x$
-omits column $x$; its image omits $\beta(x)$, whereas the complete output
-row with first coordinate $\alpha(x)$ omits $\alpha(x)$.  Thus
+For distinct $x,y\in D$, the quotient $\gamma(x/y)$ lies in $D$, so it
+is not $1$ and $\alpha(x)\ne\beta(y)$.  Given $x$, put
+$y=\beta^{-1}(\alpha(x))$; then $\alpha(x)=\beta(y)$, so $y=x$.  Thus
 $\alpha=\beta=:h$.
 
 Writing $x=ry$, equation~\eqref{eq:mult} becomes
@@ -514,23 +518,50 @@ in \eqref{eq:shift} yields $\eta(z)/\eta(w)=\delta(z/w)$.  A second
 application of Lemma~\ref{lem:isotopy} gives $\eta=\delta=:\lambda$, where
 $\lambda$ is another multiplicative-group automorphism. Thus $\chi$ is
 multiplicative both in the original coordinates and after translating
-$1$ to $0$. We now show that this forces a Frobenius power.
+$1$ to $0$. The definition of $\eta$ reads
+\begin{equation}
+ \chi(1-z)+\lambda(z)=1\qquad(z\in D).
+ \label{eq:translate}
+\end{equation}
+We show that $\lambda=\chi$ and that $\chi$ is additive.
 
-Since $\F_q^\times$ is cyclic, write $\chi(x)=x^m$ and $\lambda(x)=x^n$, with
-$1\leq m,n\leq q-2$ and both exponents coprime to $q-1$.  The definition
-of $\eta$ says
+First, $\lambda(-1)=-1$. The element $-1$ is the unique element of order
+two in $\F_q^\times$ when $p$ is odd, and a group automorphism preserves
+it; when $p=2$, $-1=1$.
+
+Next, for $z\in D$ put $w=-z/(1-z)$. Then $w\ne0$, and $w\ne1$ since
+otherwise $0=1$, so $w\in D$ and $1-w=1/(1-z)$. Applying
+\eqref{eq:translate} at $w$ and using multiplicativity with
+$\lambda(-1)=-1$ gives
 \[
- (1-z)^m+z^n=1
+ \frac{1}{\chi(1-z)}-\frac{\lambda(z)}{\lambda(1-z)}=1.
 \]
-for every $z\in D$, and the identity also holds for $z=0,1$.  The
-polynomial $(1-X)^m+X^n-1$ has all $q$ field elements as roots but degree
-at most $q-2$, so it vanishes identically.  Comparing degrees gives $m=n$,
-and then $(1-X)^m=1-X^m$.  All intermediate binomial coefficients vanish
-in characteristic $p$.  Write $m=p^r u$ with $p\nmid u$. If $u>1$, the coefficient of
-$X^{p^r}$ in $(1-X)^m=(1-X^{p^r})^u$ is $-u\ne0$,
-contradicting the vanishing of intermediate coefficients. Thus $u=1$.
-Therefore all four maps are the same power of the Frobenius automorphism.
+Substitute $\chi(1-z)=1-\lambda(z)$, which is nonzero because
+$\lambda(z)\in D$. The left side becomes
+$1+\lambda(z)/(1-\lambda(z))-\lambda(z)/\lambda(1-z)$, so
+$\lambda(1-z)=1-\lambda(z)=\chi(1-z)$. As $1-z$ ranges over $D$,
+$\lambda=\chi$.
+
+Finally, extend $\chi(0)=0$. Then $\chi(1-z)=1-\chi(z)$ for every
+$z\in\F_q$: for $z\in D$ this is the previous step, and $z=0,1$ are
+immediate. Let $a,b\in\F_q$. If $a+b=0$, then
+$\chi(a)+\chi(b)=\chi(a)(1+\chi(-1))=0$. Otherwise put $z=b/(a+b)$; then
+\[
+ \chi(a)+\chi(b)=\chi(a+b)\bigl(\chi(1-z)+\chi(z)\bigr)=\chi(a+b).
+\]
+Thus $\chi$ is a bijective additive and multiplicative map, that is, a
+field automorphism, and $\alpha=\beta=\gamma=\delta=\chi$ on $D$.
 \end{proof}
+
+The two proofs use neither finiteness nor cyclicity of the multiplicative
+group. Both lemmas therefore hold for bijections $D_F\to D_{F'}$, where
+$D_F=F\setminus\{0,1\}$, between arbitrary fields with $|F|\ge5$; the
+conclusion of Lemma~\ref{lem:frobenius} is then a field isomorphism
+$F\to F'$. The only new point is the step $\lambda(-1)=-1$. A group
+isomorphism $F^\times\to F'^\times$ preserves the existence of an element
+of order two, so $F$ has characteristic two exactly when $F'$ does, and
+the step goes through as before. Remark~\ref{rem:arbitrary-fields} uses
+this form.
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 For $q\ge9$, Corollary~\ref{cor:frame-traces} recovers the tangent traces,
@@ -556,8 +587,9 @@ field automorphism fixes $D$ and also $0,1$, and is the identity.
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:reconstruction}]
-Proposition~\ref{prop:normal} gives $|V(G_K)|=(q-2)(q-3)$, which is
-strictly increasing for $q\ge3$. Hence $q=q'$. Choose a projectivity
+Proposition~\ref{prop:normal} gives $|V(G_K)|=(q-2)(q-3)\ge42$ and
+$|V(G_J)|=(q'-2)(q'-3)$. The latter vanishes for $q'\in\{2,3\}$ and is
+strictly increasing for $q'\ge3$. Hence $q=q'$. Choose a projectivity
 $h$ carrying $K$ to $J$. The map $h^{-1}f$ is a graph automorphism,
 so Theorem~\ref{thm:main} supplies an extension.
 Uniqueness follows from the faithful action proved in Theorem~\ref{thm:main}.
@@ -620,6 +652,40 @@ only when the uncoloured graph is required to recover its four coordinate
 partitions.  At $q=5$, $G_K\cong K_6\setminus3K_2$, whose automorphism group
 has order $48$, twice the projective frame stabilizer.  Section~\ref{sec:boundary} settles the remaining orders $7,8$
 by exact finite enumeration.
+\end{remark}
+
+\begin{remark}[Arbitrary fields]\label{rem:arbitrary-fields}\coverage{absent}\uses{lem:isotopy,lem:frobenius,lem:frame-clique,cor:frame-traces,lem:centre-seeds,thm:main,cor:reconstruction}
+The definitions of Section~\ref{sec:def} apply, with $|F|$ in place of
+$q$, to a frame $K$ in the Desarguesian plane $\PG(2,F)$ over any field
+$F$. Suppose
+$|F|\ge9$, finite or infinite. The proofs of
+Lemma~\ref{lem:frame-clique}, Corollary~\ref{cor:frame-traces} and
+Lemma~\ref{lem:centre-seeds} use only incidence, the determinant
+identity, and the inequalities $|F|-3>5$ and $|F|-2>4$. Thus the tangent
+traces are the maximal cliques with more than five vertices, and the
+centre classes are the maximal cliques of $D_K$ with more than four
+members. With the field-general forms of Lemmas~\ref{lem:isotopy}
+and~\ref{lem:frobenius}, the proof of Theorem~\ref{thm:main} then gives
+\[
+ \Aut(G_K)=\Stab_{\PGammaL(3,F)}(K)\cong S_4\times\Aut(F).
+\]
+Moreover, let $J$ be a frame in $\PG(2,F')$ over any field $F'$, and let
+$f:G_K\to G_J$ be an isomorphism. A finite field gives a finite graph,
+so $F$ and $F'$ are both finite or both infinite; in the finite case the
+vertex count gives $|F|=|F'|$. Hence $|F'|\ge9$, and $f$ carries the
+traces and centre classes of $G_K$ to those of $G_J$. Normalize both
+frames by projectivities, ordering the frame points of $J$ to match
+the classes under $f$. The four fibre relabellings are then bijections
+$D_F\to D_{F'}$ satisfying \eqref{eq:mult} and \eqref{eq:shift}, so the
+two-field form of Lemma~\ref{lem:frobenius} makes them one field
+isomorphism $\chi:F\to F'$. Thus $f$ is induced by the semilinear
+bijection $(x:y:z)\mapsto(\chi x:\chi y:\chi z)$ composed with the two
+normalizing projectivities, and it carries $K$ to $J$. Uniqueness
+follows from faithfulness, as in Theorem~\ref{thm:main}.
+The bound $|F|\ge9$ is the one the clique arguments need. Among finite
+fields the conclusion also holds at $q=7$ by
+Proposition~\ref{prop:boundary}, fails at $q=5,8$, and fails trivially
+for $q\le4$, where $G_K$ has at most two vertices.
 \end{remark}
 
 
@@ -849,18 +915,54 @@ vertices, so Lemma~\ref{lem:frame-clique} places it in a tangent trace; equal
 sizes give equality.
 \end{proof}
 
-\begin{theorem}[Polynomial recognition over a supplied field]\label{thm:recognition}\coverage{absent}\uses{lem:seeds,lem:centre-seeds,prop:normal,prop:size}
-Given a graph $G$ with $n$ vertices and a model of $\F_q$, $q\ge9$,
-one can decide in polynomial time whether $G$ is a frame continuation
-graph and, if it is, output a bijection
+Closing four-clique seeds recovers the traces but examines
+$\Theta(nd^3)$ seeds, where $d$ is the degree. A local test at one vertex
+is cheaper: it separates the four traces through that vertex by counting
+common neighbours.
+
+\begin{lemma}[Local trace test]\label{lem:local-trace}\coverage{absent}\uses{lem:seeds,prop:intersection}
+Let $K$ be a frame in $\PG(2,q)$ with $q\ge13$, let $v\in V_K$, and let
+$u,w\in N(v)$ be adjacent. Then $u$ and $w$ lie on a common tangent
+trace through $v$ if and only if
+\[
+ |N(u)\cap N(w)\cap N(v)|\ge7.
+\]
+Nonadjacent vertices of $N(v)$ lie on different traces through $v$.
+\end{lemma}
+\begin{proof}
+By Proposition~\ref{prop:intersection}, the four traces $B_1,\dots,B_4$
+through $v$ pairwise meet only in $v$, and $N(v)$ is the disjoint union of
+the sets $B_i\setminus\{v\}$, each a clique. This proves the last
+sentence. If $u,w\in B_1$, every vertex of $B_1\setminus\{v,u,w\}$ is a
+common neighbour, giving at least $q-6\ge7$.
+
+Now let $u\in B_1$ and $w\in B_2$. By Lemma~\ref{lem:seeds}, a vertex
+outside a trace has at most three neighbours on it. Since $v$ and $u$
+are neighbours of $w$ on $B_1$, at most one common neighbour lies in
+$B_1\setminus\{v,u\}$; likewise at most one lies in $B_2\setminus\{v,w\}$.
+For $i=3,4$, $v$ is a neighbour of $u$ on $B_i$, so at most two common
+neighbours lie in $B_i\setminus\{v\}$. Hence there are at most six.
+\end{proof}
+
+For $q\in\{9,11\}$ the two bounds $q-6$ and $6$ do not separate; at
+these two orders Lemma~\ref{lem:seeds} is applied to a graph of bounded
+size.
+
+\begin{theorem}[Quadratic recognition over a supplied field]\label{thm:recognition}\coverage{absent}\uses{lem:seeds,lem:local-trace,lem:centre-seeds,prop:normal,prop:size}
+Let a graph $G$ with $n$ vertices be given by adjacency queries, that is,
+by its adjacency matrix, together with a model of $\F_q$, $q\ge9$.
+One can decide whether $G$ is a frame continuation graph and, if it is,
+output a bijection
 \[
  \phi:V(G)\longrightarrow
  \{(x,y)\in(\F_q\setminus\{0,1\})^2:x\ne y\}
 \]
-that preserves and reflects adjacency. The procedure below uses
-$O(n^{7/2})$ elementary adjacency and field operations after rejecting
-$n\ne(q-2)(q-3)$. A supplied coordinate certificate can be checked using
-$O(n^2)$ field operations and adjacency tests.
+that preserves and reflects adjacency. After rejecting
+$n\ne(q-2)(q-3)$, the procedure below uses $O(n^2)$ adjacency queries and
+field operations. This is optimal in the query model: every correct
+deterministic procedure queries all pairs of an accepted graph. A
+supplied coordinate certificate can be checked with $O(n^2)$ field
+operations and adjacency queries.
 \end{theorem}
 \begin{center}
 \fbox{\begin{minipage}{0.93\linewidth}
@@ -868,16 +970,18 @@ $O(n^2)$ field operations and adjacency tests.
 \begin{enumerate}[leftmargin=*,nosep]
 \item \emph{Input checks.} Require a simple graph on $(q-2)(q-3)$
 vertices, all of degree $4(q-4)$; reject otherwise.
-\item \emph{Recover partitions.} Close four-clique seeds to obtain
-$4(q-2)$ traces of size $q-3$. Close edges of their disjointness graph
-to obtain four classes of size $q-2$. Check the required partitions;
-reject any failure.
-\item \emph{Construct candidates.} Complete the division table; reject
+\item \emph{Recover partitions.} For $q\ge13$, apply the local trace
+test at every vertex of two traces through one vertex; for $q\le11$,
+close four-clique seeds. Close edges of the disjointness graph of the
+recovered traces to obtain four classes, and complete each class by its
+missing trace. Check the required partitions; reject any failure.
+\item \emph{Construct a candidate.} Complete the division table; reject
 inconsistencies. Stop at its first cyclic-generator witness and try each
-primitive field image. Discard candidates failing the fourth-partition test.
-\item \emph{Certify acceptance.} Accept a candidate only after checking
-that its coordinates biject onto $\Omega$ and reproduce adjacency for
-\emph{every} pair. Output this certificate; reject if no candidate passes.
+primitive field image. Stop at the first image passing the
+fourth-partition test; reject if none passes.
+\item \emph{Certify acceptance.} Accept only after checking that the
+candidate's coordinates biject onto $\Omega$ and reproduce adjacency for
+\emph{every} pair. Output this certificate; otherwise reject.
 \end{enumerate}
 Steps 1--3 guide reconstruction. The final check certifies acceptance
 without a promise that the input is geometric.
@@ -887,17 +991,38 @@ without a promise that the input is geometric.
 \begin{proof}
 \emph{Recover the partitions.}
 First check that the graph is simple and every vertex has degree
-$d=4(q-4)$, rejecting otherwise. Enumerate four-cliques by choosing
-a vertex and three of its neighbours, and apply Lemma~\ref{lem:seeds}, retaining only
-clique closures of size $q-3$, deduplicating equal sets. Reject unless
-there are $4(q-2)$ traces.
-Construct their disjointness graph. For each edge $AB$, form
-$\{A,B\}\cup(N_{D_K}(A)\cap N_{D_K}(B))$, retaining only closures
-that are cliques of size $q-2$ and deduplicating equal sets.
-Lemma~\ref{lem:centre-seeds} proves that these are exactly the centre
-classes for a true frame graph. Reject unless there are four
-classes of $q-2$ traces partitioning the recovered traces and each class
-partitions $V(G)$. These tests do not alone certify recognition.
+$d=4(q-4)$, rejecting otherwise.
+
+For $q\ge13$, define the local splitting at a vertex $v$: join adjacent
+$u,w\in N(v)$ when they have at least seven common neighbours in $N(v)$.
+Require four components, each a clique of size $q-4$, and record each
+component together with $v$ as a trace; reject otherwise. By
+Lemma~\ref{lem:local-trace}, a frame graph passes and the recorded sets
+are the four traces through $v$. Split at one vertex $v_0$, choose two
+of its traces $B_1,B_2$, and split at every vertex of $B_1\cup B_2$,
+deduplicating equal sets. This records every trace meeting $B_1$ or
+$B_2$. A trace that is missed is disjoint from both. By
+Lemma~\ref{lem:centre-seeds}, a class other than that of $B_1$ has at
+most one member disjoint from $B_1$, and the class of $B_1$ has at most
+one member disjoint from $B_2$. Hence each centre class misses at most
+one trace.
+
+For $q\in\{9,11\}$, enumerate four-cliques by choosing a vertex and three
+of its neighbours, and apply Lemma~\ref{lem:seeds}, retaining only clique
+closures of size $q-3$ and deduplicating equal sets.
+
+Construct the disjointness graph of the recovered traces. For each edge
+$AB$, form $\{A,B\}\cup(N_{D_K}(A)\cap N_{D_K}(B))$, retaining closures
+that are cliques with at least $q-3$ members and deduplicating equal
+sets. By Lemma~\ref{lem:centre-seeds}, a clique mixing classes has at
+most four members, whereas each class has at least $q-3>4$ recovered
+members, pairwise disjoint. So for a true frame graph the retained
+closures are exactly the recovered parts of the four centre classes.
+Reject unless there are four of them, they partition the recovered
+traces, and each consists of pairwise disjoint traces of size $q-3$.
+Complete a class with $q-3$ members by adjoining the complement of their
+union, and reject unless every class now has $q-2$ traces partitioning
+$V(G)$. These tests do not alone certify recognition.
 
 \emph{Complete the division table.}
 Order the four classes. The first two provide rows and columns. In a
@@ -939,30 +1064,44 @@ group directly, without assuming associativity of an unchecked table.
 Stop at the first successful cyclic-table witness; reject if none exists.
 Map this one generator to each primitive element of the supplied field in turn.
 For each map, form $(x,y)$ coordinates and check that the fourth class
-is exactly the fibre partition of $(x-1)/(y-1)$. Finally check that the
-coordinates are a bijection onto the displayed set and that adjacency
-agrees for every pair. Output a passing map, or reject if none passes.
+is exactly the fibre partition of $(x-1)/(y-1)$. At the first map passing
+this test, check that the coordinates are a bijection onto the displayed
+set and that adjacency agrees for every pair. Output this map if it
+passes, and reject otherwise.
 
 For a true frame any ordering of the four pencils is realized by a
 projectivity, so the completed table and at least one generator image
-pass these tests. Conversely the final check itself proves that a passing
-map is an isomorphism; no promised geometry is needed for soundness.
+pass the fourth-partition test. If $G$ is a frame graph, every passing
+image is an isomorphism: the label map is an isomorphism of the completed division table, so the
+first three classes are the fibres of $x$, $y$ and $x/y$, and the
+fourth-partition test makes the fourth class the fibres of
+$(x-1)/(y-1)$. In a frame graph two vertices are adjacent exactly when
+they share a trace, that is, when their coordinates agree in one
+position. Hence rejecting after one failed pairwise check is correct.
+Conversely the final check itself proves that an output map is an
+isomorphism; no promised geometry is needed for soundness.
 
 \emph{Cost.}
-After the vertex-count and degree checks, $q,d=O(\sqrt n)$.
-Choosing a vertex and three neighbours gives $O(nd^3)=O(n^{5/2})$
-four-clique candidates. Each common-neighbour closure costs $O(n)$
-adjacency tests. Check its size before testing whether it is a clique;
-a closure of size $q-3$ needs only $O(q^2)=O(n)$ further tests.
-Thus trace recovery takes $O(n^{7/2})$ operations. Equal retained sets
-can be deduplicated by sorting their ordered vertex lists within this bound.
-After the trace-count check, $D_K$ has $O(\sqrt n)$ vertices, so its
-construction and edge-seed closure tests take at most $O(n^2)$ operations.
-Table completion, cyclic-table checks and generator images take
-$O(q^3+qn^2)=O(n^{5/2})$ operations. These bounds apply to arbitrary
-inputs passing the preliminary checks, not only to frame graphs.
+After the vertex-count and degree checks, $q,d=O(\sqrt n)$; the degree
+check uses $O(n^2)$ queries. For $q\ge13$, the local splitting at one
+vertex counts common neighbours for the $O(d^2)$ edges inside $N(v)$, at
+$O(d)$ each, so it costs $O(q^3)$. It is performed at the $2(q-3)-1$
+vertices of $B_1\cup B_2$, for $O(q^4)=O(n^2)$ operations. For
+$q\le11$, $n$ is bounded and seed closure costs $O(1)$. The disjointness graph has at most $O(q^2)$ pairs of
+recovered traces, each tested in $O(q)$; its edge-seed closures cost
+$O(q^4)$; and completing the classes costs $O(n)$. Table completion and
+the cyclic-table search take $O(q^3)$ operations, the generator images
+$O(qn)$, and the single pairwise check $O(n^2)$. These bounds apply to
+arbitrary inputs passing the preliminary checks, not only to frame graphs.
 The last pairwise adjacency check is also the independent certificate
 verification procedure.
+
+\emph{Optimality.}
+Let a correct deterministic procedure accept a frame graph $G$ without
+querying a pair $\{a,b\}$. Changing that one pair leaves every query
+answer unchanged, so the procedure also accepts the changed graph. Its
+edge count differs from $2(q-2)(q-3)(q-4)$, so by
+Proposition~\ref{prop:size} it is not a frame graph, a contradiction.
 \end{proof}
 
 \begin{proposition}[Size of the coordinate representation]\label{prop:size}\coverage{absent}\uses{prop:normal}
@@ -1182,6 +1321,17 @@ sufficient recovery bounds.
 Give a computation-free proof of the boundary in
 Proposition~\ref{prop:boundary}, especially the two-resolution phenomenon
 at $q=8$ and uniqueness despite the many individual partitions at $q=7$.
+\end{problem}
+
+\begin{problem}\label{prob:list-recognition}\coverage{absent}\uses{thm:recognition}
+A frame graph has $n=(q-2)(q-3)$ vertices and $\Theta(n^{3/2})$ edges.
+Given adjacency lists, can frame graphs be recognized in $O(n^{3/2})$
+operations? The coordinate certificate of
+Theorem~\ref{thm:recognition} can already be checked within this bound:
+after checking injectivity, it suffices that every listed edge joins
+words agreeing in one coordinate, since both graphs are
+$4(q-4)$-regular and so have equally many edges. Trace recovery is the
+remaining obstacle.
 \end{problem}
 
 \begin{problem}\label{prob:larger-arcs}\coverage{absent}\uses{thm:traces,thm:centres}
