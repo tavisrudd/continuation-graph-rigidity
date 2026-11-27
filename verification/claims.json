@@ -60,10 +60,10 @@
       "conclusion": "Large disjointness cliques recover centre classes",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Nonempty recovered tangent traces and q+2-k>k binomial(k-2,2)",
+      "hypotheses": "Nonempty, pairwise distinct recovered tangent traces and q+2-k>k binomial(k-2,2)",
       "label": "thm:centres",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "cb3fe7453eec31c2d433381f37a3c6c70fdb0d1b907f83e7e97b5bf241635df8",
+      "statement_sha256": "c3792b869d71e2556bc5d5531a0aa3e198fb1024fe1b9ac73cdc4d8d7f9b525b",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -151,7 +151,7 @@
       "hypotheses": "Frame in PG(2,F), F any field with |F|>=9, finite or infinite",
       "label": "rem:arbitrary-fields",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "dd98e3ffcb4ba9e7836129d6224d5c827a91cc9b2832948130f44c631d38a04c",
+      "statement_sha256": "c0377291205553879911e6284f2dcd71fbbb565085c058d1a2f456191ffaabbc",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -239,7 +239,7 @@
       "hypotheses": "Frame graphs given by adjacency lists",
       "label": "prob:list-recognition",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "4d5b8f2c7877b3029152852e5e3ffc255be76d9b78d6e7f092dcf0de4ec5ec9a",
+      "statement_sha256": "207341ece8e4fa9094ad457dbe8580f65cecce2e05d6e32898c52077d09fc600",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {

@@ -50,7 +50,8 @@ compatibility between multiplication and translation to recover the field
 action. Completing a punctured division table makes the reconstruction
 algorithmic. Over a supplied finite field it gives recognition with
 $O(n^2)$ adjacency queries and field operations on $n$ vertices, which
-is optimal in the adjacency-query model, and an independently checkable
+is optimal for deterministic algorithms in the adjacency-query model, and
+an independently checkable
 coordinate certificate.
 An exhaustive finite computation closes the range $5\le q<9$:
 semilinear rigidity holds at $q=7$, whereas $q=5,8$ each have exactly
@@ -355,7 +356,12 @@ For each outside point $Q$, define its assignment $\pi_Q\in S_{\{u,v,w\}}$ by
 \[
  \operatorname{dir}(Q-r)=\operatorname{dir}(P-\pi_Q(r)),
  \qquad r\in\{u,v,w\}.
-\] Each assignment has at most one point,
+\] Each outside clique point $Q$ has such an assignment. Indeed, $Q$ is
+adjacent to the three ideal clique points along lines other than $\ell$,
+hence through affine centres; distinct ideal points need distinct
+centres, so the directions $\operatorname{dir}(Q-r)$ are exactly the
+three ideal clique points.
+Each assignment has at most one point,
 as two of its distinct directions already specify an intersection.
 The identity gives $P$. Two points can share a line through an affine
 centre only if their assignments agree there; if they agree nowhere,
@@ -384,7 +390,8 @@ This identity also holds in characteristics two and three.
 
 Finally, for a transposition and a cycle, relabel the triangle so the
 transposition swaps $v,w$. Its candidate is $(1-a,1-b)$; agreement at
-$u$ forces $a=b$. The cycle candidates are then $(c,a)$ and $(a,c)$.
+$u=(0,0)$ makes $(1-a,1-b)$ parallel to $(a,b)$, and the determinant
+$(1-a)b-a(1-b)=b-a$ vanishes, so $a=b$. The cycle candidates are then $(c,a)$ and $(a,c)$.
 A distinct such candidate joins $P=(a,a)$ in a triangle-side direction,
 so it cannot be adjacent to $P$. Hence at most two clique points lie
 outside $\ell$, a contradiction.
@@ -494,9 +501,13 @@ Writing $x=ry$, equation~\eqref{eq:mult} becomes
 whenever $r,y,ry\ne1$.  Extend $\gamma(1)=1$.  If $r,s,rs\ne1$, choose
 $y\in\F_q^\times\setminus\{1,s^{-1},(rs)^{-1}\}$; this is possible since
 $|\F_q^\times|\geq4$.  Applying \eqref{eq:punctured} twice gives
-$\gamma(rs)=\gamma(r)\gamma(s)$.  The inverse case follows by choosing
-$y\in\F_q^\times\setminus\{1,r\}$ and comparing $h(y)$ with $h(rr^{-1}y)$.  Hence $\gamma$
-extends multiplicatively.
+$\gamma(rs)=\gamma(r)\gamma(s)$.  For the inverse case $r\ne1$, choose
+$y\in\F_q^\times\setminus\{1,r\}$; then $y$, $r^{-1}y$ and $r^{\pm1}$
+differ from $1$, and \eqref{eq:punctured} gives
+\[
+ h(y)=\gamma(r)\,h(r^{-1}y)=\gamma(r)\gamma(r^{-1})\,h(y),
+\]
+so $\gamma(r)\gamma(r^{-1})=1$.  Hence $\gamma$ extends multiplicatively.
 
 Equation \eqref{eq:punctured} also makes $h(x)/\gamma(x)$ constant on $D$, say
 $h(x)=A\gamma(x)$.  Since both $h$ and $\gamma$ permute $D$, one has
@@ -661,7 +672,10 @@ $F$. Suppose
 $|F|\ge9$, finite or infinite. The proofs of
 Lemma~\ref{lem:frame-clique}, Corollary~\ref{cor:frame-traces} and
 Lemma~\ref{lem:centre-seeds} use only incidence, the determinant
-identity, and the inequalities $|F|-3>5$ and $|F|-2>4$. Thus the tangent
+identity, and two size comparisons: each trace omits only three points
+of its tangent besides the centre, so it has more than five vertices, and
+each centre class has more than four traces. Both hold when $|F|\ge9$,
+and trivially when $F$ is infinite. Thus the tangent
 traces are the maximal cliques with more than five vertices, and the
 centre classes are the maximal cliques of $D_K$ with more than four
 members. With the field-general forms of Lemmas~\ref{lem:isotopy}
@@ -684,8 +698,10 @@ normalizing projectivities, and it carries $K$ to $J$. Uniqueness
 follows from faithfulness, as in Theorem~\ref{thm:main}.
 The bound $|F|\ge9$ is the one the clique arguments need. Among finite
 fields the conclusion also holds at $q=7$ by
-Proposition~\ref{prop:boundary}, fails at $q=5,8$, and fails trivially
-for $q\le4$, where $G_K$ has at most two vertices.
+Proposition~\ref{prop:boundary} and fails at $q=5,8$, where some graph
+automorphisms are not ambient. For $q\le4$, $G_K$ has at most two
+vertices, so the frame stabilizer does not act faithfully and extensions
+are not unique.
 \end{remark}
 
 
@@ -756,7 +772,10 @@ when their legal point sets are disjoint. The same geometric counting
 argument gives the following general centre-recovery bound.
 
 \begin{theorem}[Centre-class recovery]\label{thm:centres}\coverage{absent}\uses{cor:frame-traces,thm:traces}
-Suppose all tangent traces are nonempty and have been recovered. Put
+Suppose all tangent traces are nonempty, pairwise distinct as vertex
+sets, and have been recovered; under \eqref{eq:trace-threshold} every
+trace has at least two vertices, so distinct tangents give distinct
+traces. Put
 \[
   T=q+2-k,\qquad c=\binom{k-2}{2}.
 \]
@@ -995,13 +1014,14 @@ $d=4(q-4)$, rejecting otherwise.
 
 For $q\ge13$, define the local splitting at a vertex $v$: join adjacent
 $u,w\in N(v)$ when they have at least seven common neighbours in $N(v)$.
-Require four components, each a clique of size $q-4$, and record each
-component together with $v$ as a trace; reject otherwise. By
+Require four components, each a clique of $G$ of size $q-4$, and record
+each component together with $v$ as a trace; reject otherwise. By
 Lemma~\ref{lem:local-trace}, a frame graph passes and the recorded sets
 are the four traces through $v$. Split at one vertex $v_0$, choose two
 of its traces $B_1,B_2$, and split at every vertex of $B_1\cup B_2$,
-deduplicating equal sets. This records every trace meeting $B_1$ or
-$B_2$. A trace that is missed is disjoint from both. By
+deduplicating equal sets. On any input passing these splittings, at
+most $4(2q-7)$ sets are recorded. For a frame graph this records every
+trace meeting $B_1$ or $B_2$. A trace that is missed is disjoint from both. By
 Lemma~\ref{lem:centre-seeds}, a class other than that of $B_1$ has at
 most one member disjoint from $B_1$, and the class of $B_1$ has at most
 one member disjoint from $B_2$. Hence each centre class misses at most
@@ -1038,8 +1058,11 @@ To complete division on $\F_q^\times$, we restore the identity row and column
 and the diagonal; zero does not belong to this table.
 Adjoin a symbol $1$, put $x/x=1$ and $x/1=x$, and define $1/y$ as the
 unique symbol of $D$ missing from column $y$. Set $1/1=1$. Reject
-inconsistent or nonunique entries. For a frame this completes the full
-division table of $\F_q^\times$.
+unless each row meets each column in at most one vertex and misses
+exactly one column and one third-class symbol, these missing labels
+define bijections between the alphabets, each column misses exactly one
+symbol of $D$, and every table entry is defined exactly once. For a
+frame this completes the full division table of $\F_q^\times$.
 
 For example, over $\F_5$ the punctured table is
 \[
@@ -1082,7 +1105,11 @@ Conversely the final check itself proves that an output map is an
 isomorphism; no promised geometry is needed for soundness.
 
 \emph{Cost.}
-After the vertex-count and degree checks, $q,d=O(\sqrt n)$; the degree
+We count adjacency queries and field operations at unit cost. Vertices
+and field elements are indexed by integers, so membership, labels and
+fibres are stored in arrays indexed by them; a recorded trace is a sorted
+vertex list, and equal traces are found by sorting these lists. After
+the vertex-count and degree checks, $q,d=O(\sqrt n)$; the degree
 check uses $O(n^2)$ queries. For $q\ge13$, the local splitting at one
 vertex counts common neighbours for the $O(d^2)$ edges inside $N(v)$, at
 $O(d)$ each, so it costs $O(q^3)$. It is performed at the $2(q-3)-1$
@@ -1172,7 +1199,12 @@ the same full group orders, establishing the upper bound as well as the
 witnessed subgroup. The action on all resolutions is checked explicitly.
 Finally, the division-table lemmas apply for every $q\ge5$: an automorphism
 stabilizing the geometric resolution, after a frame permutation, is
-Frobenius. Hence its stabilizer is precisely the ambient group. The
+Frobenius. Hence its stabilizer is precisely the ambient group, of
+order $24e$. Since $\Aut(G_K)$ permutes the $r$ resolutions, the
+orbit--stabilizer theorem gives $|\Aut(G_K)|\le24er$. The explicitly
+enumerated groups attain this bound at every listed order, so the
+exhaustive resolution census and the written lemmas already determine
+the full group orders; nauty is an independent cross-check. The
 bundle supplies an explicit representative of the other coset in each
 exceptional case; multiplying it by the ambient group describes every
 nonambient automorphism.
@@ -1328,9 +1360,10 @@ A frame graph has $n=(q-2)(q-3)$ vertices and $\Theta(n^{3/2})$ edges.
 Given adjacency lists, can frame graphs be recognized in $O(n^{3/2})$
 operations? The coordinate certificate of
 Theorem~\ref{thm:recognition} can already be checked within this bound:
-after checking injectivity, it suffices that every listed edge joins
-words agreeing in one coordinate, since both graphs are
-$4(q-4)$-regular and so have equally many edges. Trace recovery is the
+after checking injectivity and that the input is $4(q-4)$-regular, it
+suffices that every listed edge joins words agreeing in one coordinate,
+since the coordinate graph is also $4(q-4)$-regular and the two edge
+sets then have equal size. Trace recovery is the
 remaining obstacle.
 \end{problem}
 

@@ -42,7 +42,8 @@ with Frobenius. The action on legal vertices is faithful.
 The extension statement controls each individual graph isomorphism. It also
 leads to a recognition algorithm: given an arbitrary graph on `n` vertices
 and a finite field of order at least 9, the algorithm uses `O(n²)` adjacency
-queries and field operations, which is optimal, and either rejects or returns
+queries and field operations, which is optimal for deterministic
+algorithms in the adjacency-query model, and either rejects or returns
 coordinates that certify a frame-graph representation.
 
 ## How the graph recovers the geometry
@@ -117,9 +118,9 @@ generators, and exceptional automorphisms. See the
 [`verification/recognize.py`](verification/recognize.py) implements the
 reconstruction and returns a coordinate certificate. Checking the certificate
 requires comparing every pair of vertices, independently of the search that
-found it. The paper gives an optimal `O(n²)` recognition bound in the
-adjacency-query model and an `O(n²)` certificate check for a graph with `n`
-vertices over a supplied field.
+found it. The paper gives an `O(n²)` recognition bound, optimal for
+deterministic algorithms in the adjacency-query model, and an `O(n²)`
+certificate check for a graph with `n` vertices over a supplied field.
 
 The reference recognizer is tested at orders 9, 11, 13, 16, 17, 19 and 25,
 including nontrivial Frobenius transports, corrupted coordinates and edges,
