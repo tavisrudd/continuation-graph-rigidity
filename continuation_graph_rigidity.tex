@@ -38,12 +38,14 @@
 \maketitle
 
 \begin{abstract}
-Four points with no three collinear in the projective plane $\PG(2,q)$
-determine a graph on the points that can
+Four points with no three collinear in a projective plane $\PG(2,F)$
+over a field $F$ determine a graph on the points that can
 be adjoined without creating three collinear points; two vertices are
-adjacent when they cannot be adjoined together. For $q\ge9$, we prove
-that every isomorphism between these uncoloured graphs extends uniquely
-to a semilinear equivalence of the frames. The graph also determines $q$.
+adjacent when they cannot be adjoined together. For every field with at
+least nine elements, finite or infinite, we prove that every isomorphism
+between these uncoloured graphs extends uniquely to a semilinear
+equivalence of the frames. The graph also determines the field up to
+isomorphism.
 The proof recovers the legal points on each tangent line, groups these
 lines by their selected point, then uses
 compatibility between multiplication and translation to recover the field
@@ -60,7 +62,7 @@ semilinear subgroup has index two in the full automorphism group.
 The stable-range proof is independent of this computation.
 \end{abstract}
 
-\noindent\textbf{Keywords.} finite projective plane; arc; continuation
+\noindent\textbf{Keywords.} projective plane; arc; continuation
 graph; semilinear group; graph automorphism; Hamming isometry; code extension.
 
 \smallskip
@@ -69,7 +71,7 @@ graph; semilinear group; graph automorphism; Hamming isometry; code extension.
 
 \section{Introduction}
 
-Choose four points in a finite projective plane, with no three on a line.
+Choose four points in a projective plane over a field, with no three on a line.
 Keep the points that can be added without creating a collinear triple,
 and join two of them when they cannot both be added. Now erase the plane,
 the chosen points, and all labels. Must every symmetry of the remaining
@@ -88,10 +90,13 @@ in two points. A tangent trace consists of the legal points on
 that line. The pencil with centre $t$ consists of all lines through $t$;
 its nonempty tangent traces partition the continuation points. We call this
 partition the class with centre $t$.
-We write $\PG(2,q)$ for the plane over $\F_q$. A projectivity is induced
-by an invertible linear map; allowing a field automorphism as well gives
-a semilinear collineation. These form $\PGammaL(3,q)$. Stabilizers of
-point sets are taken setwise.
+We write $\PG(2,F)$ for the plane over a field $F$, and $\PG(2,q)$ when
+$F=\F_q$. A projectivity is induced by an invertible linear map; allowing
+a field automorphism as well gives a semilinear collineation. These form
+$\PGammaL(3,F)$. A semilinear bijection $\PG(2,F)\to\PG(2,F')$ is induced
+by a bijective map $F^3\to F'^3$ that is additive and semilinear with
+respect to a field isomorphism $F\to F'$. Stabilizers of point sets are
+taken setwise.
 
 A graph symmetry initially preserves only incompatible pairs. To extend
 it, we recover the tangent traces, group them by centre, and then constrain
@@ -99,33 +104,34 @@ the field action. The fundamental theorem of projective geometry applies
 after incidence is known; it does not recover that incidence from a graph.
 
 Our main result settles the extension question at the smallest arc size
-for which semilinear rigidity holds uniformly in the field order.  Every four-arc in $\PG(2,q)$ is a projective frame.
+for which semilinear rigidity holds uniformly in the field.  Every four-arc in $\PG(2,F)$ is a projective frame.
 
 \begin{theorem}[Semilinear rigidity]\label{thm:main}\coverage{absent}\uses{cor:frame-traces,lem:centre-seeds,prop:normal,lem:frobenius}
-Let $K$ be a projective frame in $\PG(2,q)$, where $q=p^e\geq9$.  Then, as
-permutation groups on the legal continuation set,
+Let $K$ be a projective frame in $\PG(2,F)$, where $F$ is a field with
+$|F|\ge9$, finite or infinite.  Then, as permutation groups on the legal
+continuation set,
 \[
-  \Aut(G_K)=\Stab_{\PGammaL(3,q)}(K),
-  \qquad \Aut(G_K)\cong S_4\times C_e,
-  \qquad |\Aut(G_K)|=24e.
+  \Aut(G_K)=\Stab_{\PGammaL(3,F)}(K),
+  \qquad \Aut(G_K)\cong S_4\times\Aut(F).
 \]
+In particular $|\Aut(G_K)|=24e$ when $F=\F_q$ with $q=p^e$.
 \end{theorem}
 
-\begin{corollary}[Reconstruction and extension]\label{cor:reconstruction}\coverage{absent}\uses{thm:main,prop:normal}
-Let $K\subset\PG(2,q)$ and $J\subset\PG(2,q')$ be projective frames,
-where $q\ge9$ and $q'$ is any prime power. Every graph isomorphism $f:G_K\to G_J$ forces
-$q=q'$ and extends uniquely to a semilinear collineation carrying $K$
-to $J$. Thus the abstract graph determines the plane and its frame up
-to semilinear equivalence within this family.
+\begin{corollary}[Reconstruction and extension]\label{cor:reconstruction}\coverage{absent}\uses{thm:main,prop:normal,cor:frame-traces,lem:centre-seeds,lem:frobenius}
+Let $K\subset\PG(2,F)$ and $J\subset\PG(2,F')$ be projective frames,
+where $|F|\ge9$ and $F'$ is any field. Every graph isomorphism
+$f:G_K\to G_J$ forces $F\cong F'$ and is induced by a unique semilinear
+bijection $\PG(2,F)\to\PG(2,F')$ carrying $K$ to $J$. Thus the abstract
+graph determines the field, the plane and its frame up to semilinear
+equivalence within this family.
 \end{corollary}
 
 
 
 The corollary controls individual maps: every relabelling preserving
-incompatibility has exactly one semilinear extension. Apart from a
-vertex count, the arguments are field-general:
-Remark~\ref{rem:arbitrary-fields} extends both statements to frames over
-every field with at least nine elements, finite or infinite.
+incompatibility has exactly one semilinear extension. The proofs use
+neither finiteness nor cyclicity of the multiplicative group; the field
+enters only through the bound $|F|\ge9$ in two clique arguments.
 Section~\ref{sec:algorithm} makes the reconstruction effective: given an
 arbitrary graph and a finite field of order at least $9$, it either
 rejects or supplies field
@@ -218,7 +224,7 @@ independent of the plane, and triangles generally admit automorphisms from
 the multiplicative group of the field that are not semilinear.  At $q=5$ and $q=8$ the ambient group has index two in the graph
 automorphism group. The finite classification in
 Section~\ref{sec:boundary} proves rigidity at $q=7$.
-Thus $q\ge9$ is the optimal uniform cutoff, with a computation-free
+Thus $|F|\ge9$ is the optimal uniform cutoff, with a computation-free
 proof throughout that range. The finite
 boundary locates exactly where the encoding loses uniqueness: at $q=5,8$
 the graph admits two resolutions into four parallel classes, exchanged by its extra
@@ -237,7 +243,8 @@ the recognition algorithm and the finite computational boundary.
 \section{Continuation graphs and their intersection representation}
 \label{sec:def}
 
-Let $\Pi=(P,\mathcal L)$ be a finite projective plane of order $q$, and let
+Let $\Pi=(P,\mathcal L)$ be a projective plane, either finite of order $q$
+or the plane $\PG(2,F)$ over an arbitrary field $F$, and let
 $K\subset P$ be a $k$-arc.  Define
 \[
   V_K=\{x\in P\setminus K:K\cup\{x\}\text{ is an arc}\}.
@@ -256,7 +263,12 @@ Because $x$ and $y$ are individually legal, a line witnessing \eqref{eq:conflict
 contains exactly one point of $K$.  Thus every edge has a unique
 \emph{selected centre}.
 
-For $t\in K$, let $\Sigma_t$ be the $q+2-k$ tangent lines through $t$.
+For $t\in K$, let $\Sigma_t$ be the set of tangent lines through $t$,
+that is, the lines through $t$ other than the $k-1$ secants; a finite
+plane of order $q$ has $q+2-k$ of them. Proposition~\ref{prop:intersection}
+below uses only incidence. Sections~\ref{sec:general-recovery}
+and~\ref{sec:obstructions} concern finite planes, and
+Sections~\ref{sec:algorithm} and~\ref{sec:boundary} finite fields.
 A hypergraph is a family of subsets, called hyperedges. It is $k$-uniform
 if each hyperedge has $k$ elements, and linear if distinct hyperedges
 meet in at most one element. Its line graph joins intersecting hyperedges.
@@ -298,7 +310,8 @@ adjacent pair and $k$ otherwise. The graph therefore retains the entire
 distance function on this code, even though it forgets the names of the
 coordinates and their symbols.
 
-Normalize the frame as
+Let $F$ be a field and write $D_F=F\setminus\{0,1\}$. Normalize a frame in
+$\PG(2,F)$ as
 \[
  K=\{(1:0:0),(0:1:0),(0:0:1),(1:1:1)\}.
 \]
@@ -306,7 +319,7 @@ Normalize the frame as
 \begin{proposition}[Four-coordinate normal form]\label{prop:normal}\coverage{absent}
 The legal continuation points are
 \[
- \Omega=\{(x,y):x,y\notin\{0,1\},\ x\ne y\}.
+ \Omega_F=\{(x,y)\in D_F^2:\ x\ne y\}.
 \]
 The map
 \begin{equation}
@@ -315,16 +328,17 @@ The map
  \label{eq:coordinates}
 \end{equation}
 is injective, and two vertices are adjacent exactly when their images agree
-in one coordinate.
+in one coordinate; distinct images agree in at most one.
 \end{proposition}
 
 \begin{proof}
 The six frame secants have equations
 $X=0$, $Y=0$, $Z=0$, $X=Y$, $X=Z$, and $Y=Z$.
-After normalizing $Z=1$, avoiding them gives the displayed set $\Omega$.
+After normalizing $Z=1$, avoiding them gives the displayed set $\Omega_F$.
 The parameters $x$, $y$, $x/y$, and $(x-1)/(y-1)$ label lines through
 $(0:1:0)$, $(1:0:0)$, $(0:0:1)$, and $(1:1:1)$, respectively. These
-are the four pencil parameters in \eqref{eq:coordinates}.
+are the four pencil parameters in \eqref{eq:coordinates}, so the claims
+on adjacency follow from Proposition~\ref{prop:intersection}.
 \end{proof}
 
 
@@ -336,8 +350,9 @@ of $G_K$, but a clique need not a priori lie on one tangent: different
 edges may have different selected centres.
 
 \begin{lemma}[Five-clique bound for a frame]\label{lem:frame-clique}\coverage{absent}
-Let $K$ be a projective frame in $\PG(2,q)$. Every clique not contained
-in a tangent trace has at most five vertices. This bound is attained at $q=7$.
+Let $K$ be a projective frame in $\PG(2,F)$ over any field $F$. Every
+clique not contained in a tangent trace has at most five vertices. This
+bound is attained for $F=\F_7$.
 \end{lemma}
 \begin{proof}
 Let $C$ be such a clique. Each tangent contains at most three points of
@@ -407,33 +422,37 @@ and no position is constant on all five.
 \end{proof}
 
 \begin{corollary}[Frame tangent-trace recovery]\label{cor:frame-traces}\coverage{absent}\uses{lem:frame-clique,prop:normal}
-For a projective frame in $\PG(2,q)$ with $q\ge9$, the tangent traces
+For a projective frame in $\PG(2,F)$ with $|F|\ge9$, the tangent traces
 are exactly the maximal cliques with more than five vertices.
 \end{corollary}
 \begin{proof}
-Every trace has $q-3>5$ vertices by Proposition~\ref{prop:normal}.
+By Proposition~\ref{prop:normal}, a trace is its tangent with the centre
+and three secant points removed, so it has $|F|-3>5$ vertices when $F$
+is finite and infinitely many otherwise.
 Lemma~\ref{lem:frame-clique} puts every larger clique in a trace.
-It also makes each full trace maximal, since adjoining an outside vertex
-would contradict the same bound.
+It also makes each full trace maximal: a trace with an outside vertex
+adjoined lies in no trace, since its two or more trace points determine
+the tangent, so it would contradict the same bound.
 \end{proof}
 
 \section{Intrinsic recovery of selected centres}
 \label{sec:centres}
 
-For a frame with $q\ge9$, form the disjointness graph $D_K$ on the
+For a frame with $|F|\ge9$, form the disjointness graph $D_K$ on the
 recovered tangent traces: two traces are adjacent when their legal point
 sets are disjoint. The four centre classes can be recovered from edges
 of this graph.
 
 \begin{lemma}[Centre recovery from edge seeds]\label{lem:centre-seeds}\coverage{absent}\uses{cor:frame-traces}
-Let $K$ be a projective frame in $\PG(2,q)$, $q\ge9$. A trace outside a
+Let $K$ be a projective frame in $\PG(2,F)$, $|F|\ge9$. A trace outside a
 centre class $\mathcal P$ is disjoint from at most one member of
 $\mathcal P$. For distinct $A,B\in\mathcal P$,
 \[
  \mathcal P=\{A,B\}\cup\bigl(N_{D_K}(A)\cap N_{D_K}(B)\bigr).
 \]
-The closures of edges of $D_K$ that are cliques of size $q-2$ are
-exactly the four centre classes.
+Call $\{A,B\}\cup(N_{D_K}(A)\cap N_{D_K}(B))$ the closure of an edge
+$AB$ of $D_K$. The closures that are cliques with more than four
+members are exactly the four centre classes.
 \end{lemma}
 \begin{proof}
 Let $A$ have centre $t$, and let $u\ne t$ be another centre. A tangent
@@ -448,8 +467,10 @@ the closure formula.
 A clique mixing centre classes has at most four members. Indeed, choose
 $A,B$ in different classes. The trace $A$ bounds the contribution of
 each other class by one, and $B$ bounds the contribution of $A$'s class
-by one. Since $q-2>4$, every retained closure lies in a single centre
-class and fills it. Conversely, every class is obtained from any of its edges.
+by one. A centre class consists of the tangents through its centre
+other than the three secants, so it has $|F|-2>4$ members, or infinitely
+many. Hence every retained closure lies in a single centre class and
+fills it. Conversely, every class is obtained from any of its edges.
 \end{proof}
 
 \section{The four-point frame}
@@ -463,32 +484,36 @@ translation. For a first reading, retain the conclusions of the next two
 lemmas: the first forces one multiplicative permutation, and the second
 forces that permutation to preserve the field.
 
-Write $D=\F_q\setminus\{0,1\}$.  For $q\geq9$,
-Corollary~\ref{cor:frame-traces} and Lemma~\ref{lem:centre-seeds} recover the four coordinate
-partitions.  After composing with the unique projectivity inducing the
-corresponding permutation of the frame, a graph automorphism preserves all
-four partitions. Preserving a partition permits relabelling its fibres;
-write $\alpha,\beta,\gamma,\delta$ for these four permutations of $D$.
-The first two send a vertex to $(\alpha(x),\beta(y))$. Its last two
-labels can also be read from the quotient formulas, so consistency gives
+Let $F$ and $F'$ be fields, write $D=D_F$ and $D'=D_{F'}$, and let $K$
+and $J$ be the normalized frames in $\PG(2,F)$ and $\PG(2,F')$. For
+$|F|\geq9$, Corollary~\ref{cor:frame-traces} and
+Lemma~\ref{lem:centre-seeds} recover the four coordinate partitions of
+$G_K$. Consider an isomorphism $f:G_K\to G_J$ carrying each coordinate
+partition of $G_K$ to the partition in the same position for $G_J$; for
+an automorphism, $F'=F$ and this holds after composing with the unique
+projectivity that induces the corresponding permutation of the frame.
+Carrying fibres to fibres defines four bijections
+$\alpha,\beta,\gamma,\delta:D\to D'$. The first two send a vertex
+$(x,y)$ to $(\alpha(x),\beta(y))$. Its last two labels can also be read
+from the quotient formulas, computed in $F'$, so consistency gives
 \begin{align}
  \frac{\alpha(x)}{\beta(y)}&=\gamma(x/y),\label{eq:mult}\\
  \frac{\alpha(x)-1}{\beta(y)-1}
    &=\delta\left(\frac{x-1}{y-1}\right)\label{eq:shift}
 \end{align}
 for all distinct $x,y\in D$. These are initially independent
-permutations of the row, column and quotient labels. The missing diagonal
-$x=y$ will force the row and column permutations to coincide.
+bijections of the row, column and quotient labels. The missing diagonal
+$x=y$ will force the row and column bijections to coincide.
 
 \begin{lemma}[Relabelling a punctured division table]\label{lem:isotopy}\coverage{absent}
-Suppose permutations $\alpha,\beta,\gamma$ of $D$ satisfy
-\eqref{eq:mult} for all distinct $x,y\in D$, with $q\geq5$.  Then
-$\alpha=\beta=\gamma=\chi$, where $\chi$ extends to an automorphism of the
-multiplicative group $\F_q^\times$.
+Let $F,F'$ be fields with $|F|\geq5$. Suppose bijections
+$\alpha,\beta,\gamma:D\to D'$ satisfy \eqref{eq:mult} for all distinct
+$x,y\in D$.  Then $\alpha=\beta=\gamma=\chi|_D$ for a group isomorphism
+$\chi:F^\times\to F'^\times$ with $\chi(1)=1$.
 \end{lemma}
 
 \begin{proof}
-For distinct $x,y\in D$, the quotient $\gamma(x/y)$ lies in $D$, so it
+For distinct $x,y\in D$, the element $\gamma(x/y)$ lies in $D'$, so it
 is not $1$ and $\alpha(x)\ne\beta(y)$.  Given $x$, put
 $y=\beta^{-1}(\alpha(x))$; then $\alpha(x)=\beta(y)$, so $y=x$.  Thus
 $\alpha=\beta=:h$.
@@ -499,35 +524,41 @@ Writing $x=ry$, equation~\eqref{eq:mult} becomes
  \label{eq:punctured}
 \end{equation}
 whenever $r,y,ry\ne1$.  Extend $\gamma(1)=1$.  If $r,s,rs\ne1$, choose
-$y\in\F_q^\times\setminus\{1,s^{-1},(rs)^{-1}\}$; this is possible since
-$|\F_q^\times|\geq4$.  Applying \eqref{eq:punctured} twice gives
+$y\in F^\times\setminus\{1,s^{-1},(rs)^{-1}\}$; this is possible since
+$|F^\times|\geq4$.  Applying \eqref{eq:punctured} twice gives
 $\gamma(rs)=\gamma(r)\gamma(s)$.  For the inverse case $r\ne1$, choose
-$y\in\F_q^\times\setminus\{1,r\}$; then $y$, $r^{-1}y$ and $r^{\pm1}$
+$y\in F^\times\setminus\{1,r\}$; then $y$, $r^{-1}y$ and $r^{\pm1}$
 differ from $1$, and \eqref{eq:punctured} gives
 \[
  h(y)=\gamma(r)\,h(r^{-1}y)=\gamma(r)\gamma(r^{-1})\,h(y),
 \]
-so $\gamma(r)\gamma(r^{-1})=1$.  Hence $\gamma$ extends multiplicatively.
+so $\gamma(r)\gamma(r^{-1})=1$.  Hence $\gamma$ extends to a
+homomorphism $F^\times\to F'^\times$, bijective because $\gamma$ is.
 
 Equation \eqref{eq:punctured} also makes $h(x)/\gamma(x)$ constant on $D$, say
-$h(x)=A\gamma(x)$.  Since both $h$ and $\gamma$ permute $D$, one has
-$AD=D$.  But $AD=\F_q^\times\setminus\{A\}$ and
-$D=\F_q^\times\setminus\{1\}$, so $A=1$.
+$h(x)=A\gamma(x)$.  Since $h$ and $\gamma$ both map $D$ onto $D'$, one
+has $AD'=D'$.  But $AD'=F'^\times\setminus\{A\}$ and
+$D'=F'^\times\setminus\{1\}$, so $A=1$.
 \end{proof}
 
 \begin{lemma}[Compatibility with translation]\label{lem:frobenius}\coverage{absent}\uses{lem:isotopy}
-Assume $q\ge5$. If permutations $\alpha,\beta,\gamma,\delta$ of $D$ satisfy both
-\eqref{eq:mult} and \eqref{eq:shift}, then all four are restrictions of one
-field automorphism of $\F_q$.
+Let $F,F'$ be fields with $|F|\ge5$. If bijections
+$\alpha,\beta,\gamma,\delta:D\to D'$ satisfy both \eqref{eq:mult} and
+\eqref{eq:shift}, then all four are restrictions of one field isomorphism
+$F\to F'$. In particular, for $F'=F$ they are restrictions of one field
+automorphism.
 \end{lemma}
 
 \begin{proof}
 Lemma~\ref{lem:isotopy} gives
-$\alpha=\beta=\gamma=\chi$ for a multiplicative-group automorphism $\chi$.
-Define $\eta(z)=1-\chi(1-z)$ on $D$.  Substitution of $x=1-z$ and $y=1-w$
+$\alpha=\beta=\gamma=\chi$ for a group isomorphism
+$\chi:F^\times\to F'^\times$.
+Define $\eta(z)=1-\chi(1-z)$ on $D$. As $z$ ranges over $D$, so does
+$1-z$; hence $\chi(1-z)$ ranges over $D'$, and $\eta$ is a bijection
+$D\to D'$. Substitution of $x=1-z$ and $y=1-w$
 in \eqref{eq:shift} yields $\eta(z)/\eta(w)=\delta(z/w)$.  A second
 application of Lemma~\ref{lem:isotopy} gives $\eta=\delta=:\lambda$, where
-$\lambda$ is another multiplicative-group automorphism. Thus $\chi$ is
+$\lambda:F^\times\to F'^\times$ is another group isomorphism. Thus $\chi$ is
 multiplicative both in the original coordinates and after translating
 $1$ to $0$. The definition of $\eta$ reads
 \begin{equation}
@@ -536,9 +567,12 @@ $1$ to $0$. The definition of $\eta$ reads
 \end{equation}
 We show that $\lambda=\chi$ and that $\chi$ is additive.
 
-First, $\lambda(-1)=-1$. The element $-1$ is the unique element of order
-two in $\F_q^\times$ when $p$ is odd, and a group automorphism preserves
-it; when $p=2$, $-1=1$.
+First, $\lambda(-1)=-1$. In any field, $x^2=1$ only for $x=\pm1$, so
+the multiplicative group has an element of order two exactly when the
+characteristic is not two, and that element is $-1$. The group
+isomorphism $\lambda$ preserves the existence of such an element. Hence
+either both characteristics differ from two and $\lambda(-1)=-1$, or
+both equal two and $\lambda(-1)=\lambda(1)=1=-1$.
 
 Next, for $z\in D$ put $w=-z/(1-z)$. Then $w\ne0$, and $w\ne1$ since
 otherwise $0=1$, so $w\in D$ and $1-w=1/(1-z)$. Applying
@@ -548,34 +582,28 @@ $\lambda(-1)=-1$ gives
  \frac{1}{\chi(1-z)}-\frac{\lambda(z)}{\lambda(1-z)}=1.
 \]
 Substitute $\chi(1-z)=1-\lambda(z)$, which is nonzero because
-$\lambda(z)\in D$. The left side becomes
+$\lambda(z)\in D'$. The left side becomes
 $1+\lambda(z)/(1-\lambda(z))-\lambda(z)/\lambda(1-z)$, so
 $\lambda(1-z)=1-\lambda(z)=\chi(1-z)$. As $1-z$ ranges over $D$,
 $\lambda=\chi$.
 
 Finally, extend $\chi(0)=0$. Then $\chi(1-z)=1-\chi(z)$ for every
-$z\in\F_q$: for $z\in D$ this is the previous step, and $z=0,1$ are
-immediate. Let $a,b\in\F_q$. If $a+b=0$, then
+$z\in F$: for $z\in D$ this is the previous step, and $z=0,1$ are
+immediate. Let $a,b\in F$. If $a+b=0$, then
 $\chi(a)+\chi(b)=\chi(a)(1+\chi(-1))=0$. Otherwise put $z=b/(a+b)$; then
 \[
  \chi(a)+\chi(b)=\chi(a+b)\bigl(\chi(1-z)+\chi(z)\bigr)=\chi(a+b).
 \]
 Thus $\chi$ is a bijective additive and multiplicative map, that is, a
-field automorphism, and $\alpha=\beta=\gamma=\delta=\chi$ on $D$.
+field isomorphism $F\to F'$, and $\alpha=\beta=\gamma=\delta=\chi$ on $D$.
 \end{proof}
 
-The two proofs use neither finiteness nor cyclicity of the multiplicative
-group. Both lemmas therefore hold for bijections $D_F\to D_{F'}$, where
-$D_F=F\setminus\{0,1\}$, between arbitrary fields with $|F|\ge5$; the
-conclusion of Lemma~\ref{lem:frobenius} is then a field isomorphism
-$F\to F'$. The only new point is the step $\lambda(-1)=-1$. A group
-isomorphism $F^\times\to F'^\times$ preserves the existence of an element
-of order two, so $F$ has characteristic two exactly when $F'$ does, and
-the step goes through as before. Remark~\ref{rem:arbitrary-fields} uses
-this form.
+Neither proof uses finiteness or cyclicity of the multiplicative group.
+For finite fields the second lemma says that the four relabellings are
+one power of the Frobenius automorphism.
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-For $q\ge9$, Corollary~\ref{cor:frame-traces} recovers the tangent traces,
+For $|F|\ge9$, Corollary~\ref{cor:frame-traces} recovers the tangent traces,
 and Lemma~\ref{lem:centre-seeds} recovers the four centre classes.  Thus every graph automorphism
 permutes the four recovered centre classes.  Every permutation of a
 projective frame is realized by a unique projectivity.  Compose by its
@@ -586,10 +614,12 @@ makes them one field automorphism.  This is induced by a semilinear
 collineation fixing the normalized frame.
 
 Conversely, every semilinear frame stabilizer preserves legal points and
-collinearity, so it acts on $G_K$.  The projective stabilizer of a frame is
-$S_4$, realized in normalized coordinates over the prime field, and
-therefore commutes with Frobenius. The semilinear stabilizer is
-$S_4\times C_e$, where $e=[\F_q:\F_p]$.
+collinearity, so it acts on $G_K$.  The group $\PGL(3,F)$ is sharply
+transitive on ordered frames, so the projective stabilizer of a frame is
+$S_4$. In normalized coordinates its elements have matrices over the
+prime field, which every field automorphism fixes, so they commute with
+the coordinatewise action of $\Aut(F)$. The semilinear stabilizer is
+therefore $S_4\times\Aut(F)$, which is $S_4\times C_e$ for $F=\F_{p^e}$.
 Its action is faithful: an element fixing every legal point fixes each
 recovered trace, hence each centre. After normalization it is a field
 automorphism. Every $x\in D$ occurs as a first coordinate, so this
@@ -598,12 +628,24 @@ field automorphism fixes $D$ and also $0,1$, and is the identity.
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:reconstruction}]
-Proposition~\ref{prop:normal} gives $|V(G_K)|=(q-2)(q-3)\ge42$ and
-$|V(G_J)|=(q'-2)(q'-3)$. The latter vanishes for $q'\in\{2,3\}$ and is
-strictly increasing for $q'\ge3$. Hence $q=q'$. Choose a projectivity
-$h$ carrying $K$ to $J$. The map $h^{-1}f$ is a graph automorphism,
-so Theorem~\ref{thm:main} supplies an extension.
-Uniqueness follows from the faithful action proved in Theorem~\ref{thm:main}.
+A finite field gives a finite graph and an infinite field an infinite
+one, so $F$ and $F'$ are both finite or both infinite. In the finite
+case, Proposition~\ref{prop:normal} gives $|V(G_K)|=(q-2)(q-3)\ge42$
+and $|V(G_J)|=(q'-2)(q'-3)$, where $q=|F|$ and $q'=|F'|$. The latter
+vanishes for $q'\in\{2,3\}$ and is strictly increasing for $q'\ge3$, so
+$q=q'$. In either case $|F'|\ge9$, and Corollary~\ref{cor:frame-traces}
+and Lemma~\ref{lem:centre-seeds} recover the traces and centre classes of
+both graphs intrinsically; hence $f$ carries traces to traces and classes
+to classes. Normalize both frames by projectivities, ordering the frame
+points of $J$ to match the classes under $f$. Then $f$ carries each
+coordinate partition to the one in the same position, and
+Lemma~\ref{lem:frobenius} makes its four relabellings one field
+isomorphism $\chi:F\to F'$. Thus $f$ is induced by
+$(x:y:z)\mapsto(\chi x:\chi y:\chi z)$ composed with the two normalizing
+projectivities, a semilinear bijection carrying $K$ to $J$. If two
+semilinear bijections induce $f$, their quotient is a semilinear frame
+stabilizer acting trivially on $V_K$, hence the identity by the
+faithfulness in Theorem~\ref{thm:main}.
 \proves{cor:reconstruction}
 \end{proof}
 
@@ -658,50 +700,15 @@ symbol actions; Theorem~\ref{thm:main} further identifies their projective
 semilinear origin.
 
 \begin{remark}[The small-order boundary]\label{rem:small-order}\coverage{absent}\uses{prop:boundary,lem:isotopy}
-The division-table lemmas already apply for $q\geq5$; the bound $q\geq9$ enters
-only when the uncoloured graph is required to recover its four coordinate
-partitions.  At $q=5$, $G_K\cong K_6\setminus3K_2$, whose automorphism group
-has order $48$, twice the projective frame stabilizer.  Section~\ref{sec:boundary} settles the remaining orders $7,8$
-by exact finite enumeration.
-\end{remark}
-
-\begin{remark}[Arbitrary fields]\label{rem:arbitrary-fields}\coverage{absent}\uses{lem:isotopy,lem:frobenius,lem:frame-clique,cor:frame-traces,lem:centre-seeds,thm:main,cor:reconstruction}
-The definitions of Section~\ref{sec:def} apply, with $|F|$ in place of
-$q$, to a frame $K$ in the Desarguesian plane $\PG(2,F)$ over any field
-$F$. Suppose
-$|F|\ge9$, finite or infinite. The proofs of
-Lemma~\ref{lem:frame-clique}, Corollary~\ref{cor:frame-traces} and
-Lemma~\ref{lem:centre-seeds} use only incidence, the determinant
-identity, and two size comparisons: each trace omits only three points
-of its tangent besides the centre, so it has more than five vertices, and
-each centre class has more than four traces. Both hold when $|F|\ge9$,
-and trivially when $F$ is infinite. Thus the tangent
-traces are the maximal cliques with more than five vertices, and the
-centre classes are the maximal cliques of $D_K$ with more than four
-members. With the field-general forms of Lemmas~\ref{lem:isotopy}
-and~\ref{lem:frobenius}, the proof of Theorem~\ref{thm:main} then gives
-\[
- \Aut(G_K)=\Stab_{\PGammaL(3,F)}(K)\cong S_4\times\Aut(F).
-\]
-Moreover, let $J$ be a frame in $\PG(2,F')$ over any field $F'$, and let
-$f:G_K\to G_J$ be an isomorphism. A finite field gives a finite graph,
-so $F$ and $F'$ are both finite or both infinite; in the finite case the
-vertex count gives $|F|=|F'|$. Hence $|F'|\ge9$, and $f$ carries the
-traces and centre classes of $G_K$ to those of $G_J$. Normalize both
-frames by projectivities, ordering the frame points of $J$ to match
-the classes under $f$. The four fibre relabellings are then bijections
-$D_F\to D_{F'}$ satisfying \eqref{eq:mult} and \eqref{eq:shift}, so the
-two-field form of Lemma~\ref{lem:frobenius} makes them one field
-isomorphism $\chi:F\to F'$. Thus $f$ is induced by the semilinear
-bijection $(x:y:z)\mapsto(\chi x:\chi y:\chi z)$ composed with the two
-normalizing projectivities, and it carries $K$ to $J$. Uniqueness
-follows from faithfulness, as in Theorem~\ref{thm:main}.
-The bound $|F|\ge9$ is the one the clique arguments need. Among finite
-fields the conclusion also holds at $q=7$ by
-Proposition~\ref{prop:boundary} and fails at $q=5,8$, where some graph
-automorphisms are not ambient. For $q\le4$, $G_K$ has at most two
-vertices, so the frame stabilizer does not act faithfully and extensions
-are not unique.
+The division-table lemmas already apply for $|F|\geq5$; the bound $|F|\geq9$
+enters only when the uncoloured graph is required to recover its four
+coordinate partitions, so it constrains only finite fields.  At $q=5$,
+$G_K\cong K_6\setminus3K_2$, whose automorphism group has order $48$, twice
+the projective frame stabilizer.  Section~\ref{sec:boundary} settles the
+remaining orders $7,8$ by exact finite enumeration: rigidity holds at
+$q=7$ and fails at $q=5,8$, where some graph automorphisms are not
+ambient. For $q\le4$, $G_K$ has at most two vertices, so the frame
+stabilizer does not act faithfully and extensions are not unique.
 \end{remark}
 
 
@@ -744,7 +751,7 @@ stronger covering-number hypothesis. Lemma~\ref{lem:clique} specializes
 that argument to tangent symbols; it needs no further projective incidence.
 
 \begin{theorem}[Tangent-trace recovery]\label{thm:traces}\coverage{absent}\uses{lem:clique}
-If
+Assume $k\ge2$. If
 \begin{equation}
   q-\binom{k-1}{2}>k(k-2)+1,
   \label{eq:trace-threshold}
@@ -772,7 +779,7 @@ when their legal point sets are disjoint. The same geometric counting
 argument gives the following general centre-recovery bound.
 
 \begin{theorem}[Centre-class recovery]\label{thm:centres}\coverage{absent}\uses{cor:frame-traces,thm:traces}
-Suppose all tangent traces are nonempty, pairwise distinct as vertex
+Assume $k\ge2$. Suppose all tangent traces are nonempty, pairwise distinct as vertex
 sets, and have been recovered; under \eqref{eq:trace-threshold} every
 trace has at least two vertices, so distinct tangents give distinct
 traces. Put
@@ -803,13 +810,15 @@ every larger clique lies in one centre class, and maximality recovers the
 whole class.
 \end{proof}
 
-For reference, the resulting sufficient integer thresholds are
+For reference, the smallest integers $q$ satisfying both inequalities are
 \[
 \begin{array}{c|ccccc}
 k&3&4&5&6&8\\ \hline
-q&7&13&23&41&127.
+q&6&13&23&41&127.
 \end{array}
 \]
+Since no projective plane of order six exists, the bound for $k=3$
+applies from order seven.
 These are the general plane bounds; for Desarguesian frames the entry
 $13$ improves to $9$ by Corollary~\ref{cor:frame-traces}.  The disjointness
 argument is plane-specific: in higher dimension, tangent lines with
@@ -914,7 +923,7 @@ compares every pair of vertices, so the recovered coordinates are a
 certificate even when the input was not promised to come from geometry.
 
 \begin{lemma}[Recovering traces by common neighbours]\label{lem:seeds}\coverage{absent}\uses{prop:normal,lem:frame-clique}
-Let $K$ be a four-point frame and $B$ a tangent trace. A vertex outside
+Let $K$ be a frame in $\PG(2,q)$ and $B$ a tangent trace. A vertex outside
 $B$ has at most three neighbours in $B$. Consequently, if $Q$ consists
 of four vertices of $B$, then
 \[
@@ -999,7 +1008,7 @@ inconsistencies. Stop at its first cyclic-generator witness and try each
 primitive field image. Stop at the first image passing the
 fourth-partition test; reject if none passes.
 \item \emph{Certify acceptance.} Accept only after checking that the
-candidate's coordinates biject onto $\Omega$ and reproduce adjacency for
+candidate's coordinates biject onto $\Omega_{\F_q}$ and reproduce adjacency for
 \emph{every} pair. Output this certificate; otherwise reject.
 \end{enumerate}
 Steps 1--3 guide reconstruction. The final check certifies acceptance
@@ -1031,7 +1040,10 @@ For $q\in\{9,11\}$, enumerate four-cliques by choosing a vertex and three
 of its neighbours, and apply Lemma~\ref{lem:seeds}, retaining only clique
 closures of size $q-3$ and deduplicating equal sets.
 
-Construct the disjointness graph of the recovered traces. For each edge
+Construct the disjointness graph of the recovered traces; for a frame
+graph it is the subgraph of $D_K$ induced on them, missing at most one
+trace per class, so the bounds of Lemma~\ref{lem:centre-seeds} still
+apply to it. For each edge
 $AB$, form $\{A,B\}\cup(N_{D_K}(A)\cap N_{D_K}(B))$, retaining closures
 that are cliques with at least $q-3$ members and deduplicating equal
 sets. By Lemma~\ref{lem:centre-seeds}, a clique mixing classes has at
@@ -1132,7 +1144,8 @@ Proposition~\ref{prop:size} it is not a frame graph, a contradiction.
 \end{proof}
 
 \begin{proposition}[Size of the coordinate representation]\label{prop:size}\coverage{absent}\uses{prop:normal}
-For $q\ge4$, a frame graph has $(q-2)(q-3)$ vertices, degree $4(q-4)$, and
+For $q\ge4$, the graph of a frame in $\PG(2,q)$ has $(q-2)(q-3)$
+vertices, degree $4(q-4)$, and
 $2(q-2)(q-3)(q-4)$ edges. Four field symbols per vertex determine
 adjacency by equality in one coordinate.
 \end{proposition}
@@ -1250,7 +1263,8 @@ At $q=8$, let $\sigma(x,y)=(x^2,y^2)$ and, composing right to left, put
 \[
  s=s_2s_3s_2,\qquad z=s\tau.
 \]
-Here $s$ exchanges the second and fourth frame points. Direct permutation
+Here $s$ exchanges the second and fourth frame points. Since $s$ is
+ambient and $\tau$ is not, $z\ne1$. Direct permutation
 checks on the thirty indexed vertices give
 \[
  z^2=1,\qquad zs_i=s_i z\ (i=1,2,3),\qquad
@@ -1277,9 +1291,9 @@ ambient semilinear subgroup, respectively $S_4\times\{1\}$ and
 $S_4\times A_3$.
 
 Together with Theorem~\ref{thm:main}, the census proves semilinear rigidity
-for every prime power $q\ge5$ except $q=5,8$. This combined statement has
-a finite computational premise only at $q=7$; the theorem for $q\ge9$
-does not.
+for every field with at least five elements except $\F_5$ and $\F_8$.
+This combined statement has a finite computational premise only at
+$q=7$; the theorem for $|F|\ge9$ does not.
 
 For $q=9,11$, the last three census columns also follow without
 computation: every $(q-3)$-clique is a full tangent trace, and any
@@ -1305,14 +1319,14 @@ avoidance game.
 The space $M_{0,5}$ parametrizes ordered configurations of five distinct
 projective-line points modulo projectivities. With markings
 $(0,1,\infty,x,y)$, the model in Proposition~\ref{prop:normal} identifies the
-vertex set with $M_{0,5}(\F_q)$. Up to reparametrizing the target, the four
+vertex set with $M_{0,5}(F)$. Up to reparametrizing the target, the four
 maps in \eqref{eq:coordinates} forget respectively $y$, $x$, $1$, and $0$. Thus the graph
 records fibre coincidence for four of the five forgetful maps to $M_{0,4}$.
 For comparison, Bruno and Mella prove
 $\Aut(\overline{M}_{0,n})=S_n$ for the compactified moduli space over
 $\mathbb C$ when $n\ge5$~\cite[Theorem 3]{BrunoMella}. This algebraic
 automorphism theorem does not constrain arbitrary permutations of the
-finite rational point set preserving a single graph relation.
+rational point set preserving a single graph relation.
 
 \paragraph{Beyond pairwise compatibility.}
 There is a stronger residual object,
@@ -1360,7 +1374,8 @@ A frame graph has $n=(q-2)(q-3)$ vertices and $\Theta(n^{3/2})$ edges.
 Given adjacency lists, can frame graphs be recognized in $O(n^{3/2})$
 operations? The coordinate certificate of
 Theorem~\ref{thm:recognition} can already be checked within this bound:
-after checking injectivity and that the input is $4(q-4)$-regular, it
+after checking injectivity and that the input is a simple
+$4(q-4)$-regular graph, it
 suffices that every listed edge joins words agreeing in one coordinate,
 since the coordinate graph is also $4(q-4)$-regular and the two edge
 sets then have equal size. Trace recovery is the

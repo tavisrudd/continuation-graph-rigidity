@@ -15,6 +15,9 @@ digraph claims {
   "cor:reconstruction" [color="gray"];
   "thm:main" -> "cor:reconstruction" [style=dashed];
   "prop:normal" -> "cor:reconstruction" [style=dashed];
+  "cor:frame-traces" -> "cor:reconstruction" [style=dashed];
+  "lem:centre-seeds" -> "cor:reconstruction" [style=dashed];
+  "lem:frobenius" -> "cor:reconstruction" [style=dashed];
   "lem:centre-seeds" [color="gray"];
   "cor:frame-traces" -> "lem:centre-seeds" [style=dashed];
   "lem:clique" [color="gray"];
@@ -48,14 +51,6 @@ digraph claims {
   "prop:one-point" [color="gray"];
   "prop:size" [color="gray"];
   "prop:normal" -> "prop:size" [style=dashed];
-  "rem:arbitrary-fields" [color="gray"];
-  "lem:isotopy" -> "rem:arbitrary-fields" [style=dashed];
-  "lem:frobenius" -> "rem:arbitrary-fields" [style=dashed];
-  "lem:frame-clique" -> "rem:arbitrary-fields" [style=dashed];
-  "cor:frame-traces" -> "rem:arbitrary-fields" [style=dashed];
-  "lem:centre-seeds" -> "rem:arbitrary-fields" [style=dashed];
-  "thm:main" -> "rem:arbitrary-fields" [style=dashed];
-  "cor:reconstruction" -> "rem:arbitrary-fields" [style=dashed];
   "rem:small-order" [color="gray"];
   "prop:boundary" -> "rem:small-order" [style=dashed];
   "lem:isotopy" -> "rem:small-order" [style=dashed];

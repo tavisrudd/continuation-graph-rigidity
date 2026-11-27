@@ -8,36 +8,34 @@ Tavis Rudd — November 2026.
 
 [**Open the paper (PDF) →**](continuation_graph_rigidity.pdf)
 
-Choose four points in a finite projective plane, with no three on a line.
-Keep the points that can be added without creating a collinear triple, and
-join two of them when they cannot both be added. Now erase the plane, the
+Choose four points in a projective plane over a field, with no three on a
+line. Keep the points that can be added without creating a collinear triple,
+and join two of them when they cannot both be added. Now erase the plane, the
 chosen points, and all labels. Can the remaining graph recover the geometry?
 
-The paper answers this question for four-point projective frames over finite
-fields of order at least 9. The graph determines the field order and the
-plane with its frame, up to semilinear equivalence. Every graph isomorphism
-extends uniquely to an equivalence of the underlying planes carrying one
-frame to the other. Apart from a vertex count, the arguments are
-field-general, so the same holds for frames over every field with at least
-nine elements, finite or infinite.
+The paper answers this question for four-point projective frames over every
+field with at least nine elements, finite or infinite. The graph determines
+the field up to isomorphism and the plane with its frame, up to semilinear
+equivalence. Every graph isomorphism extends uniquely to an equivalence of
+the underlying planes carrying one frame to the other.
 
 ## Main result
 
-Let `K` be a projective frame in `PG(2,q)`, where `q = p^e ≥ 9`. Its
-**continuation graph** `G_K` has one vertex for each point that can be added
-to `K` while preserving the no-three-collinear condition. Two vertices are
-adjacent when they cannot both be added.
+Let `K` be a projective frame in `PG(2,F)`, where `F` is a field with at
+least nine elements. Its **continuation graph** `G_K` has one vertex for each
+point that can be added to `K` while preserving the no-three-collinear
+condition. Two vertices are adjacent when they cannot both be added.
 
 As permutation groups on these vertices,
 
 ```text
-Aut(G_K) = Stab_{PΓL(3,q)}(K),        |Aut(G_K)| = 24e.
+Aut(G_K) = Stab_{PΓL(3,F)}(K) ≅ S_4 × Aut(F).
 ```
 
-Here `PΓL(3,q)` consists of projective linear transformations together with
-field automorphisms; the stabilizer may permute the four frame points.
-The abstract group is `S_4 × C_e`: normalized frame permutations commute
-with Frobenius. The action on legal vertices is faithful.
+Here `PΓL(3,F)` consists of projective linear transformations together with
+field automorphisms; the stabilizer may permute the four frame points, and
+normalized frame permutations commute with field automorphisms. The action on
+legal vertices is faithful. For `F = F_q` with `q = p^e`, `|Aut(G_K)| = 24e`.
 
 The extension statement controls each individual graph isomorphism. It also
 leads to a recognition algorithm: given an arbitrary graph on `n` vertices
@@ -52,7 +50,7 @@ A tangent is a line meeting the frame in exactly one point. Its legal
 continuation points form a clique, called its **tangent trace**. The proof
 recovers the information lost when those cliques became unlabelled edges:
 
-1. **Recover the traces.** Tangent traces have `q−3` vertices. For `q ≥ 9`,
+1. **Recover the traces.** Over `F_q`, tangent traces have `q−3` vertices. For `q ≥ 9`,
    a clique spread across several tangents has at most five vertices, so the graph identifies
    the traces by their size.
 2. **Recover the four classes.** Traces through the same frame point partition
@@ -96,7 +94,7 @@ where the graph fails to distinguish the original geometric resolution.
 
 ## Proof and evidence boundary
 
-The uniform theorem for `q ≥ 9` and the recognition algorithm are proved in
+The uniform theorem for `|F| ≥ 9` and the recognition algorithm are proved in
 the manuscript independently of the finite census. No theorem is claimed to
 be Lean-formalized.
 

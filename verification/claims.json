@@ -2,24 +2,24 @@
   "claims": [
     {
       "cautions": "Written argument or scope remark; no Lean formalization claimed.",
-      "conclusion": "Faithful ambient semilinear stabilizer action; abstract group S4 x C_e and order 24e",
+      "conclusion": "Faithful ambient semilinear stabilizer action; abstract group S4 x Aut(F); order 24e for F=F_{p^e}",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Projective frame, q=p^e>=9",
+      "hypotheses": "Projective frame in PG(2,F), F any field with |F|>=9, finite or infinite",
       "label": "thm:main",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "5053d51c0f877e3866608cd5fcfd2bc9718815f3f83b9eb4b054b6ecac785143",
+      "statement_sha256": "f709adb74da8879b221052279fcf7a9f6b6c3a66e8fa55cfe92405b3606ff9e1",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
       "cautions": "Written argument or scope remark; no Lean formalization claimed.",
-      "conclusion": "Each graph isomorphism extends uniquely; field order and geometry are recovered",
+      "conclusion": "Each graph isomorphism forces F=F' up to isomorphism and is induced by a unique semilinear bijection carrying K to J",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Two Desarguesian frames with q>=9 and qprime any prime power",
+      "hypotheses": "Frames in PG(2,F) and PG(2,F'), |F|>=9, F' any field",
       "label": "cor:reconstruction",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "c17afe074e5b86efb6ef4324d0db6ac744632cbbab6f6b67ae7e39947295f63b",
+      "statement_sha256": "ba87c04dbb5d91485f012ffe00cc957e4caf957c3aa0cdfa03bf556176208c80",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -27,7 +27,7 @@
       "conclusion": "The tangent-symbol hypergraph is k-uniform and linear and has the conflict graph as its line graph",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "A k-arc with k>=2 in a finite projective plane; the intersection formula concerns distinct legal points",
+      "hypotheses": "A k-arc with k>=2 in a finite projective plane or in PG(2,F); the intersection formula concerns distinct legal points",
       "label": "prop:intersection",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
       "statement_sha256": "9183afad2a5007de1496eb299da996f2fd0eef75a08962560e61e0dc3f7b6d50",
@@ -49,10 +49,10 @@
       "conclusion": "Tangent traces are the large maximal cliques",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "q-binomial(k-1,2)>k(k-2)+1; comparison arc J has the same k and its plane order satisfies the same inequality",
+      "hypotheses": "k>=2; q-binomial(k-1,2)>k(k-2)+1; comparison arc J has the same k and its plane order satisfies the same inequality",
       "label": "thm:traces",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "813b344a59400c56bf733eb89a1b406fa444d7e87c5c2fe8635a62047972930c",
+      "statement_sha256": "72bf1ae2aad2e01adf3e314a9d7b4a1a913fda467cb28c20c62a6a33cd4cd7e2",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -60,10 +60,10 @@
       "conclusion": "Large disjointness cliques recover centre classes",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Nonempty, pairwise distinct recovered tangent traces and q+2-k>k binomial(k-2,2)",
+      "hypotheses": "k>=2; Nonempty, pairwise distinct recovered tangent traces and q+2-k>k binomial(k-2,2)",
       "label": "thm:centres",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "c3792b869d71e2556bc5d5531a0aa3e198fb1024fe1b9ac73cdc4d8d7f9b525b",
+      "statement_sha256": "3ad07b0213edffd96e9de80ab21460348bcacf0cc9280d72f7933e29a462a2d6",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -101,57 +101,46 @@
     },
     {
       "cautions": "Written argument or scope remark; no Lean formalization claimed.",
-      "conclusion": "Legal vertices and edges have the four-map normal form",
+      "conclusion": "Legal vertices are Omega_F and edges have the four-map normal form",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Four specified coordinate frame points",
+      "hypotheses": "Normalized frame in PG(2,F), F any field",
       "label": "prop:normal",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "353368d709cdcec9fe3bd3656c46eae26aa81a64b789f99b5f0ce0d92d1b2f45",
+      "statement_sha256": "39a12072745c57488d79ea59a6a6628b18d0c7aa7d96372c334a6da9165f87a7",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
       "cautions": "Written argument or scope remark; no Lean formalization claimed.",
-      "conclusion": "All maps extend to one multiplicative-group automorphism",
+      "conclusion": "All three maps are restrictions of one group isomorphism F^x -> F'^x",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "q>=5; alphabet permutations satisfy the punctured quotient equation",
+      "hypotheses": "Fields F,F' with |F|>=5; bijections D_F->D_F' satisfy the punctured quotient equation",
       "label": "lem:isotopy",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "c1cda32b3c4e2e0b75ab09018622c266ab5c8df93e30c83b107429e21f58e240",
+      "statement_sha256": "2aa367905f9a9367538d5e652f31f898a3009b37945a1a6955bf12a40eaa93c0",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
       "cautions": "Written argument or scope remark; no Lean formalization claimed.",
-      "conclusion": "All four maps extend to one field automorphism",
+      "conclusion": "All four maps are restrictions of one field isomorphism F->F'",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "q>=5; both quotient and translated quotient equations hold",
+      "hypotheses": "Fields F,F' with |F|>=5; bijections D_F->D_F' satisfy both quotient and translated quotient equations",
       "label": "lem:frobenius",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "c865d04c445c267b4cbecb46c09546024fbc2df5cb0b67cd1f9f9dcbb3c6db80",
+      "statement_sha256": "055945c80a903c87e85577be63c00ee8560be5ffb5f56f2d3839d98e984d4496",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
       "cautions": "Written argument or scope remark; no Lean formalization claimed.",
-      "conclusion": "Uniform recovery for q>=9; exact computation settles q=7,8 and the q=5 exception is octahedral",
+      "conclusion": "The bound |F|>=9 constrains only finite fields; exact computation settles q=7,8; q=5 is octahedral; q<=4 non-faithful",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Isotopy range q>=5, uniform intrinsic recovery range q>=9",
+      "hypotheses": "Isotopy range |F|>=5, uniform intrinsic recovery range |F|>=9",
       "label": "rem:small-order",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "60766d062c9b9f13acd4ac1c9d52289265f3b315e1ed871f25f28b83edcb4e47",
-      "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    {
-      "cautions": "Proof sketch by reference to the field-general proofs; no Lean formalization claimed. Finite-field boundary at q=7 uses prop:boundary.",
-      "conclusion": "Aut(G_K)=Stab_PGammaL(3,F)(K)=S4 x Aut(F); isomorphisms to frame graphs over any field force F=F' and extend uniquely semilinearly",
-      "coverage": "absent",
-      "declarations": [],
-      "hypotheses": "Frame in PG(2,F), F any field with |F|>=9, finite or infinite",
-      "label": "rem:arbitrary-fields",
-      "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "c0377291205553879911e6284f2dcd71fbbb565085c058d1a2f456191ffaabbc",
+      "statement_sha256": "804decc92b0ffaff66896a1c7c35d6c0ecd788f08ab4b93396afba39a155b26b",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -159,10 +148,10 @@
       "conclusion": "Four vertices determine a tangent trace by common neighbourhood",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Four-point frame; final recovery statement q>=9",
+      "hypotheses": "Frame in PG(2,q); final recovery statement q>=9",
       "label": "lem:seeds",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "de2d8fa85ffa42eedd9044b4dee2e04700c82ae7a858a84f8cf4d25e29145b83",
+      "statement_sha256": "b234f59c1675aed6c8b6e5b80b73ba12c49c40a2005037ed4196df9f8b1a1b79",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -192,10 +181,10 @@
       "conclusion": "Exact counts and four-symbol representation of adjacency",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Four-point frame normal form over a field of order q >= 4",
+      "hypotheses": "Frame in PG(2,q), q>=4",
       "label": "prop:size",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "022f3727ca1429624c3d95e7a0572dafdc9c91657ddc6001027255a2f6a333ff",
+      "statement_sha256": "83bfe8ba65bf499cb031194567b4f0e5e91196a35867747b689122f72aa4d27b",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -236,10 +225,10 @@
       "conclusion": "Open: recognition in O(n^(3/2)) operations; certificate checking already fits this bound",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Frame graphs given by adjacency lists",
+      "hypotheses": "Frame graphs given by adjacency lists; certificate check verifies simplicity, regularity and injectivity",
       "label": "prob:list-recognition",
       "objects": "Continuation graphs and the projective or algebraic structures specified in the statement.",
-      "statement_sha256": "207341ece8e4fa9094ad457dbe8580f65cecce2e05d6e32898c52077d09fc600",
+      "statement_sha256": "810a398b7fc5780c748915a2aedfeecbbdf0f27335f9b29d634dd2363352f2d1",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -258,10 +247,10 @@
       "conclusion": "At most five vertices; attained over F7",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Projective frame; clique not contained in a tangent trace",
+      "hypotheses": "Projective frame in PG(2,F), F any field; clique not contained in a tangent trace",
       "label": "lem:frame-clique",
       "objects": "Cliques in Desarguesian frame continuation graphs",
-      "statement_sha256": "0b96efbb158caf3aa654038529f4cc646ff3ffece122f2583915f0c3760be3b0",
+      "statement_sha256": "07b74f90bff24283e06bf693f7839125085b702d168afd6a6f3df6fa36b36055",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -269,10 +258,10 @@
       "conclusion": "Traces are exactly maximal cliques with more than five vertices",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Projective frame in PG(2,q), q>=9",
+      "hypotheses": "Projective frame in PG(2,F), |F|>=9",
       "label": "cor:frame-traces",
       "objects": "Tangent traces and maximal cliques of frame graphs",
-      "statement_sha256": "e9bb1bd0e515566f204c6560ba0ac5475719ef2c808f424616c68f26000aa2eb",
+      "statement_sha256": "a4e3193a96ebfe2adc9e3811135e82893da800570ed09e00678292afedabf0c3",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
@@ -288,13 +277,13 @@
     },
     {
       "cautions": "Written geometric proof; no Lean formalization claimed.",
-      "conclusion": "An outside trace meets the disjointness neighbourhood of a class at most once; edge closures of size q-2 that are cliques recover exactly four centre classes",
+      "conclusion": "An outside trace is disjoint from at most one member of a class; edge closures that are cliques with more than four members are exactly the four centre classes",
       "coverage": "absent",
       "declarations": [],
-      "hypotheses": "Desarguesian projective frame, q>=9",
+      "hypotheses": "Desarguesian projective frame in PG(2,F), |F|>=9",
       "label": "lem:centre-seeds",
       "objects": "Disjointness graph of recovered tangent traces and frame centre classes",
-      "statement_sha256": "e2436986f05526369ed67b43158e30d2a71458666c0726e441fd2c36cba9ff5b",
+      "statement_sha256": "15f43b56f098f6bcc9a860271fc8b0f75f1ed4d5dd0eefe407631b9ba6a1de89",
       "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
