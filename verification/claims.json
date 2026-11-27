@@ -134,6 +134,17 @@
     },
     {
       "cautions": "Written argument or scope remark; no Lean formalization claimed.",
+      "conclusion": "F and F' are isomorphic and the bijection is induced by a unique semilinear bijection PG(2,F)->PG(2,F') sending the i-th frame point to the i-th frame point",
+      "coverage": "absent",
+      "declarations": [],
+      "hypotheses": "Ordered projective frames in PG(2,F) and PG(2,F'), |F|>=5, F' any field; a bijection of legal continuation sets carrying each tangent trace with the i-th centre onto a tangent trace with the i-th centre",
+      "label": "cor:four-pencils",
+      "objects": "Legal continuation sets, tangent traces and their centre classes, semilinear bijections.",
+      "statement_sha256": "3b314116c15bd700bcf043e1f53d380b3dc87c40f79a1e848ffb70f059f324ec",
+      "terminal_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "cautions": "Written argument or scope remark; no Lean formalization claimed.",
       "conclusion": "The bound |F|>=9 constrains only finite fields; exact computation settles q=7,8; q=5 is octahedral; q<=4 non-faithful",
       "coverage": "absent",
       "declarations": [],

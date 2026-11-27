@@ -117,7 +117,7 @@ continuation set,
 In particular $|\Aut(G_K)|=24e$ when $F=\F_q$ with $q=p^e$.
 \end{theorem}
 
-\begin{corollary}[Reconstruction and extension]\label{cor:reconstruction}\coverage{absent}\uses{thm:main,prop:normal,cor:frame-traces,lem:centre-seeds,lem:frobenius}
+\begin{corollary}[Reconstruction and extension]\label{cor:reconstruction}\coverage{absent}\uses{thm:main,prop:normal,cor:frame-traces,lem:centre-seeds,lem:frobenius,cor:four-pencils}
 Let $K\subset\PG(2,F)$ and $J\subset\PG(2,F')$ be projective frames,
 where $|F|\ge9$ and $F'$ is any field. Every graph isomorphism
 $f:G_K\to G_J$ forces $F\cong F'$ and is induced by a unique semilinear
@@ -216,6 +216,26 @@ orbits as adjacency. Here adjacency merges four fibre relations, and the
 proof recovers their separate roles before identifying the field action.
 The configuration-space interpretation of these fibres is optional
 background in Section~\ref{sec:remarks}.
+
+Fundamental theorems with restricted input give a second comparison. On
+the projective line, theorems of von Staudt type show that permutations
+preserving harmonic quadruples, or quadruples with a prescribed
+cross-ratio, are semilinear; see~\cite[Section~1]{HalKap} and the survey
+in~\cite[Section~1]{Havlicek}. For real projective space,
+Artstein-Avidan and Slomka prove that an injective self-map sending every
+line through one of $n+2$ suitably general points onto a line is
+projective-linear~\cite[Theorem~1.7]{AAS}; for $n=2$ a projective frame
+satisfies their hypotheses. The algebraic core is that a multiplicative
+injection $f$ of $\mathbb{R}$ for which $x\mapsto f(x+1)-1$ is also
+multiplicative is the identity~\cite[Lemma~3.6]{AAS}.
+Lemma~\ref{lem:frobenius} reaches the same pair of conditions,
+multiplicativity before and after a unit translation, and solves it over
+every field with at least five elements, between two fields, starting from
+four independent relabellings of the punctured alphabet $D_F$.
+Corollary~\ref{cor:four-pencils} is the resulting planar statement for
+tangent traces. In the continuation graph neither the lines nor their
+pencils are given; Sections~\ref{sec:traces} and~\ref{sec:centres}
+recover them.
 
 \paragraph{Boundary and reading guide.}
 The lower boundary is genuine.  One-point continuation graphs are disjoint
@@ -512,6 +532,12 @@ $x,y\in D$.  Then $\alpha=\beta=\gamma=\chi|_D$ for a group isomorphism
 $\chi:F^\times\to F'^\times$ with $\chi(1)=1$.
 \end{lemma}
 
+Without the puncture the corresponding fact is classical: isotopic groups
+are isomorphic, by Albert's theorem~\cite[Theorem~2]{Albert}; see
+\cite[Section~2]{BCPS}, where Theorem~2.5 is derived from it. In the
+punctured table the missing symbol $1$ and the missing diagonal force
+$\alpha=\beta=\gamma$.
+
 \begin{proof}
 For distinct $x,y\in D$, the element $\gamma(x/y)$ lies in $D'$, so it
 is not $1$ and $\alpha(x)\ne\beta(y)$.  Given $x$, put
@@ -602,6 +628,44 @@ Neither proof uses finiteness or cyclicity of the multiplicative group.
 For finite fields the second lemma says that the four relabellings are
 one power of the Frobenius automorphism.
 
+When the four classes of traces are given, the two lemmas already
+determine the plane for $|F|\ge5$. The following corollary records this
+form, which needs neither the graph nor the bound $|F|\ge9$.
+
+\begin{corollary}[Four pencils over any field]\label{cor:four-pencils}\coverage{absent}\uses{prop:normal,lem:frobenius}
+Let $K=\{k_1,\dots,k_4\}\subset\PG(2,F)$ and
+$J=\{j_1,\dots,j_4\}\subset\PG(2,F')$ be projective frames, where
+$|F|\ge5$ and $F'$ is any field. Let $f:V_K\to V_J$ be a bijection that,
+for each $i$, carries every tangent trace with centre $k_i$ onto a tangent
+trace with centre $j_i$. Then $F\cong F'$, and $f$ is induced by a unique
+semilinear bijection $\PG(2,F)\to\PG(2,F')$. This bijection sends $k_i$
+to $j_i$ for each $i$.
+\end{corollary}
+
+\begin{proof}
+Normalize both frames by projectivities sending $k_i$ and $j_i$ to the
+$i$th point of the normalized frame, in the order of
+Proposition~\ref{prop:normal}. By that proposition, the traces with
+centre $k_i$ are the fibres of the $i$th coordinate
+in~\eqref{eq:coordinates}, each with at least $|F|-3\ge2$ points, and
+likewise for $J$. These traces partition the legal points and $f$ is
+bijective, so $f$ induces bijections $\alpha,\beta,\gamma,\delta:D\to D'$
+of fibre labels. A vertex is determined by its first two coordinates, so
+$f(x,y)=(\alpha(x),\beta(y))$, and reading its last two coordinates gives
+\eqref{eq:mult} and~\eqref{eq:shift}. Lemma~\ref{lem:frobenius} makes
+the four bijections one field isomorphism $\chi:F\to F'$. Hence $f$ is
+induced by $(x:y:z)\mapsto(\chi x:\chi y:\chi z)$ between the normalized
+frames, composed with the normalizing projectivities.
+
+A semilinear bijection $g$ inducing $f$ maps the line of each trace with
+centre $k_i$ onto the line spanned by its image, a tangent through $j_i$.
+At least $|F|-2\ge3$ such lines pass through $k_i$, so $g(k_i)=j_i$. If
+$g$ and $g'$ both induce $f$, then $g^{-1}g'$ fixes every legal point and
+every frame point. After normalization it is induced by a field
+automorphism, which fixes each $x\in D$ because $x$ occurs as a first
+coordinate; it also fixes $0$ and $1$, so it is the identity.
+\end{proof}
+
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 For $|F|\ge9$, Corollary~\ref{cor:frame-traces} recovers the tangent traces,
 and Lemma~\ref{lem:centre-seeds} recovers the four centre classes.  Thus every graph automorphism
@@ -636,16 +700,9 @@ vanishes for $q'\in\{2,3\}$ and is strictly increasing for $q'\ge3$, so
 $q=q'$. In either case $|F'|\ge9$, and Corollary~\ref{cor:frame-traces}
 and Lemma~\ref{lem:centre-seeds} recover the traces and centre classes of
 both graphs intrinsically; hence $f$ carries traces to traces and classes
-to classes. Normalize both frames by projectivities, ordering the frame
-points of $J$ to match the classes under $f$. Then $f$ carries each
-coordinate partition to the one in the same position, and
-Lemma~\ref{lem:frobenius} makes its four relabellings one field
-isomorphism $\chi:F\to F'$. Thus $f$ is induced by
-$(x:y:z)\mapsto(\chi x:\chi y:\chi z)$ composed with the two normalizing
-projectivities, a semilinear bijection carrying $K$ to $J$. If two
-semilinear bijections induce $f$, their quotient is a semilinear frame
-stabilizer acting trivially on $V_K$, hence the identity by the
-faithfulness in Theorem~\ref{thm:main}.
+to classes. Order the frame points of $J$ to match the classes under $f$.
+Corollary~\ref{cor:four-pencils} then gives $F\cong F'$ and a unique
+semilinear bijection inducing $f$, which carries $K$ to $J$.
 \proves{cor:reconstruction}
 \end{proof}
 
@@ -976,6 +1033,18 @@ For $q\in\{9,11\}$ the two bounds $q-6$ and $6$ do not separate; at
 these two orders Lemma~\ref{lem:seeds} is applied to a graph of bounded
 size.
 
+Counting triangles on an edge is the standard tool for recognizing
+intersection graphs of linear $k$-uniform hypergraphs, a class that
+contains frame graphs with $k=4$. Jacobson, K\'ezdy and Lehel decide
+membership in polynomial time when every edge lies in at least
+$2k^2-3k+1$ triangles~\cite{JKL}; see~\cite[Section~5]{Naik}, which also
+records that a lower bound on vertex degree alone leaves recognition
+NP-complete for every $k\ge4$. Every edge of a frame graph lies in at
+least $q-5$ triangles inside its trace, so their criterion applies when
+$q\ge26$. Lemma~\ref{lem:local-trace} uses the frame geometry to separate
+the traces from $q\ge13$, counting triangles only inside one
+neighbourhood.
+
 \begin{theorem}[Quadratic recognition over a supplied field]\label{thm:recognition}\coverage{absent}\uses{lem:seeds,lem:local-trace,lem:centre-seeds,prop:normal,prop:size}
 Let a graph $G$ with $n$ vertices be given by adjacency queries, that is,
 by its adjacency matrix, together with a model of $\F_q$, $q\ge9$.
@@ -1136,7 +1205,7 @@ The last pairwise adjacency check is also the independent certificate
 verification procedure.
 
 \emph{Optimality.}
-Let a correct deterministic procedure accept a frame graph $G$ without
+The usual adversary argument applies. Let a correct deterministic procedure accept a frame graph $G$ without
 querying a pair $\{a,b\}$. Changing that one pair leaves every query
 answer unchanged, so the procedure also accepts the changed graph. Its
 edge count differs from $2(q-2)(q-3)(q-4)$, so by
@@ -1446,6 +1515,19 @@ artifacts; this revised draft remains subject to author and external review.
 \begin{thebibliography}{99}
 \small
 
+\bibitem{Albert}
+A.~A.~Albert,
+\newblock Quasigroups.~I,
+\newblock \emph{Trans. Amer. Math. Soc.} \textbf{54} (1943), 507--519.
+\newblock doi:10.1090/s0002-9947-1943-0009962-7.
+
+\bibitem{AAS}
+S.~Artstein-Avidan and B.~A.~Slomka,
+\newblock The fundamental theorems of affine and projective geometry revisited,
+\newblock \emph{Commun. Contemp. Math.} \textbf{19} (2017), 1650059.
+\newblock doi:10.1142/S0219199716500590; arXiv:1604.01762v1 (2016).
+Theorem and lemma numbering cited here refers to this arXiv version.
+
 \bibitem{BCPS}
 R.~A.~Bailey, P.~J.~Cameron, C.~E.~Praeger and C.~Schneider,
 \newblock The geometry of diagonal groups,
@@ -1491,6 +1573,31 @@ A.~Gardiner, C.~E.~Praeger, and S.~Zhou,
 \newblock Cross ratio graphs,
 \newblock \emph{J. London Math. Soc.} \textbf{64} (2001), 257--272.
 \newblock doi:10.1112/S0024610701002150.
+
+\bibitem{HalKap}
+Y.~Halevi and I.~Kaplan,
+\newblock A generalisation of von Staudt's theorem on cross-ratios,
+\newblock \emph{Math. Proc. Cambridge Philos. Soc.} \textbf{168} (2020), 601--612.
+\newblock doi:10.1017/S0305004119000021; arXiv:1803.08520v2.
+Section numbering cited here refers to this arXiv version.
+
+\bibitem{Havlicek}
+H.~Havlicek,
+\newblock Von Staudt's theorem revisited,
+\newblock \emph{Aequationes Math.} \textbf{89} (2015), 459--472.
+\newblock doi:10.1007/s00010-013-0218-6; arXiv:1302.4042v3.
+Section numbering cited here refers to this arXiv version.
+
+\bibitem{JKL}
+M.~S.~Jacobson, A.~E.~K\'ezdy and J.~Lehel,
+\newblock Recognizing intersection graphs of linear uniform hypergraphs,
+\newblock \emph{Graphs Combin.} \textbf{13} (1997), 359--367.
+\newblock doi:10.1007/bf03353014.
+
+\bibitem{Naik}
+R.~N.~Naik,
+\newblock On intersection graphs of graphs and hypergraphs: a survey,
+\newblock arXiv:1809.08472v4, 2019.
 
 \end{thebibliography}
 

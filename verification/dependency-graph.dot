@@ -9,6 +9,9 @@ digraph claims {
   "prop:normal" -> "cor:exceptional-groups" [style=dashed];
   "boundary" -> "cor:exceptional-groups" [style=dotted];
   "exceptional_groups" -> "cor:exceptional-groups" [style=dotted];
+  "cor:four-pencils" [color="gray"];
+  "prop:normal" -> "cor:four-pencils" [style=dashed];
+  "lem:frobenius" -> "cor:four-pencils" [style=dashed];
   "cor:frame-traces" [color="gray"];
   "lem:frame-clique" -> "cor:frame-traces" [style=dashed];
   "prop:normal" -> "cor:frame-traces" [style=dashed];
@@ -18,6 +21,7 @@ digraph claims {
   "cor:frame-traces" -> "cor:reconstruction" [style=dashed];
   "lem:centre-seeds" -> "cor:reconstruction" [style=dashed];
   "lem:frobenius" -> "cor:reconstruction" [style=dashed];
+  "cor:four-pencils" -> "cor:reconstruction" [style=dashed];
   "lem:centre-seeds" [color="gray"];
   "cor:frame-traces" -> "lem:centre-seeds" [style=dashed];
   "lem:clique" [color="gray"];
