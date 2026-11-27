@@ -1,6 +1,6 @@
 {
   "content_sha256": "8c665b4f6ee298b304f594d6e46d409d3fb5b013ff749f9228a11a74610b995e",
-  "excluded_path_count": 0,
+  "excluded_path_count": 1,
   "excluded_release_outputs": [],
   "excluded_symlinks": [
     {
